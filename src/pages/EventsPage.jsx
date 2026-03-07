@@ -1,5 +1,5 @@
 import CanvasBackground from '../components/CanvasBackground/CanvasBackground';
-import Navbar from '../components/Navbar/Navbar';
+import ScrollNavbar from '../components/ScrollNavbar/ScrollNavbar';
 import RenaissanceHero from './sections/RenaissanceHero';
 import EventsSection from './sections/EventCards';
 import Workshops from './sections/Workshops';
@@ -11,7 +11,7 @@ export default function EventsPage() {
     return (
         <>
             <CanvasBackground />
-            <Navbar />
+            <ScrollNavbar scrollProgress={1} />
             <main>
                 <RenaissanceHero />
                 <EventsSection />

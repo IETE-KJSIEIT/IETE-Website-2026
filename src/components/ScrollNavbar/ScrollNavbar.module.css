@@ -1,0 +1,238 @@
+/* =========================================
+   ScrollNavbar – Official Vibe (All Components Scatter)
+   ========================================= */
+
+.navbarContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    z-index: 100;
+    pointer-events: none;
+    /* handled via JS */
+}
+
+/* ── Assembled Background Pieces ── */
+.navBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.navBorder {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            rgba(0, 200, 255, 0) 0%,
+            rgba(0, 200, 255, 0.3) 20%,
+            rgba(0, 200, 255, 0.3) 80%,
+            rgba(0, 200, 255, 0) 100%);
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.2);
+}
+
+/* ── Content Wrapper ── */
+.navContent {
+    position: relative;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ── Official Logo ── */
+.logoLink {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 40px;
+}
+
+/* The box piece that flies in */
+.logoPill {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 200, 255, 0.05);
+    border-left: 3px solid var(--primary);
+    border-radius: 2px;
+}
+
+/* The text wrapper that sits exactly over the pill */
+.logoTextWrapper {
+    position: relative;
+    padding: 0 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: pre;
+}
+
+.logoHighlight {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--primary);
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 12px rgba(0, 200, 255, 0.6);
+}
+
+.logoText {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+}
+
+/* ── Central Navigation ── */
+.navMenu {
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;
+    height: 100%;
+}
+
+.navLink {
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.6);
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+.navLink:hover,
+.navLink.active {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* The indicator bar that flies in */
+.navIndicator {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--primary);
+    box-shadow: 0 -2px 10px var(--primary);
+    transition: width 0.3s ease;
+    border-radius: 3px 3px 0 0;
+}
+
+.navLink:hover .navIndicator,
+.navLink.active .navIndicator {
+    width: 100%;
+    /* Keep the translation intact since width expansion happens from center via margins/left/transform */
+    transform: translateX(-50%)
+        /* preserve centering */
+    ;
+}
+
+/* To avoid competing transforms between ScatterBox and pseudo-centering, we override the hover state carefully: */
+/* ScatterBox will apply a transform. So instead of animating width, we can use an actual ::after for the hover, 
+   but since the user wanted the indicator ITSELF to scatter in, we use width. 
+   When the scatter finishes, transform is `translate(0, 0)`. We force the centering via margin. */
+.navIndicator {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: none !important;
+    /* once settled, ignore the translate to ensure clean width animation */
+}
+
+/* When fading/scattering, let the inline transform work, but once ease reaches 1, it naturally translates to 0,0 anyway */
+
+/* ── Contact CTA Button ── */
+.contactWrapper {
+    text-decoration: none;
+    position: relative;
+    height: 40px;
+    width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactBtnBox {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 200, 255, 0.1);
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.contactWrapper:hover .contactBtnBox {
+    background: rgba(0, 200, 255, 0.25);
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.3);
+}
+
+.contactTextWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactText {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--primary);
+    text-shadow: 0 0 8px rgba(0, 200, 255, 0.5);
+}
+
+.contactWrapper:hover .contactText {
+    color: #ffffff;
+}
+
+/* ── Scatter Helpers ── */
+.labelWrap {
+    display: inline-flex;
+    position: relative;
+    white-space: pre;
+}
+
+.char {
+    display: inline-block;
+    will-change: transform, opacity;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .navContent {
+        padding: 0 1.5rem;
+        justify-content: space-between;
+    }
+
+    .navMenu {
+        display: none;
+    }
+
+    /* Hide heavy menu on mobile, or use hamburger later */
+    .contactWrapper {
+        display: none;
+    }
+}

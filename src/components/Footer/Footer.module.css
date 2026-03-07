@@ -1,173 +1,186 @@
+/* ============================
+   Footer — mirrors ietekjsit.khushm.com
+   but with cyan (#00c8ff) instead of green
+   ============================ */
+
 .footer {
     position: relative;
-    background: rgba(3, 6, 14, 0.97);
-    border-top: 1px solid rgba(0, 200, 255, 0.12);
+    z-index: 2;
+    background: transparent;
     overflow: hidden;
-    font-family: var(--font-sub);
+    padding: 4rem 2rem 0;
 }
 
-/* Grid texture matching the screenshot */
-.gridBg {
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(0, 255, 200, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 200, 0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-}
 
-/* 3-column layout */
+
+/* Main 3-column layout */
 .inner {
     position: relative;
     z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 2rem 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+    padding-bottom: 3rem;
     align-items: start;
 }
 
-/* Each text column */
+/* Column */
 .col {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-/* Column headings — matching the green/yellow heading from screenshot */
+/* Section headings — large, monospace, glowing cyan */
 .colTitle {
-    font-family: var(--font-display);
-    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: clamp(1.8rem, 3vw, 3rem);
     font-weight: 700;
-    letter-spacing: 0.06em;
     color: var(--primary);
-    text-shadow: 0 0 10px rgba(0, 200, 255, 0.4);
-    margin-bottom: 0.35rem;
+    text-shadow: 0 0 24px var(--primary), 0 0 8px var(--primary);
+    letter-spacing: 0.01em;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
 }
 
-.colTitleMt {
-    margin-top: 1.4rem;
-}
-
-.linkList {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-}
-
-/* Text links */
-.textLink {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: 'Share Tech Mono', 'Courier New', monospace;
-    font-size: 0.88rem;
-    color: rgba(200, 230, 255, 0.7);
+/* Links */
+.link {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: clamp(1rem, 1.8vw, 1.6rem);
+    color: oklch(0.87 0 0);
     text-decoration: none;
-    letter-spacing: 0.04em;
     transition: color 0.2s, text-shadow 0.2s;
+    line-height: 1.6;
 }
 
-.textLink:hover {
-    color: var(--primary);
-    text-shadow: 0 0 8px rgba(0, 200, 255, 0.5);
+.link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0, 200, 255, 0.8);
 }
 
-/* Logo column */
-.logoCol {
+/* Logo circles with glowing cyan border */
+.logos {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
     padding-top: 0.5rem;
 }
 
-/* Circular logo rings */
-.logoRing {
-    width: 90px;
-    height: 90px;
+.logoBubble {
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
-    border: 1.5px solid rgba(0, 200, 255, 0.3);
-    background: rgba(0, 10, 20, 0.6);
-    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 16px rgba(0, 200, 255, 0.5), inset 0 0 12px rgba(0, 200, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.logoRing:hover {
-    border-color: rgba(0, 200, 255, 0.6);
-    box-shadow: 0 0 18px rgba(0, 200, 255, 0.2);
+    overflow: hidden;
+    position: relative;
 }
 
 .logoImg {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+    object-fit: contain;
+    padding: 10px;
 }
 
-/* Fallback if logos not loaded yet */
 .logoFallback {
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.05em;
 }
 
-.logoText {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
+/* Giant low-opacity watermark behind everything */
+.watermark {
+    position: relative;
+    z-index: 0;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14vw;
     font-weight: 900;
     color: var(--primary);
-    letter-spacing: 0.1em;
+    opacity: 0.07;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+    animation: flicker 4s infinite;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-/* Bottom bar */
+@keyframes flicker {
+
+    0%,
+    92%,
+    100% {
+        opacity: 0.07;
+    }
+
+    93% {
+        opacity: 0.12;
+    }
+
+    94% {
+        opacity: 0.05;
+    }
+
+    95% {
+        opacity: 0.11;
+    }
+
+    96% {
+        opacity: 0.06;
+    }
+
+    97% {
+        opacity: 0.10;
+    }
+}
+
+/* Copyright */
 .bottom {
     position: relative;
     z-index: 1;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 1rem 2rem;
+    border-top: 1px solid rgba(0, 200, 255, 0.08);
+    padding: 1rem 0;
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 2rem;
-    align-items: center;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.22);
-    letter-spacing: 0.06em;
 }
 
-.bottomSub {
-    color: rgba(255, 255, 255, 0.15);
+.bottom p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.03em;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
     .inner {
         grid-template-columns: 1fr 1fr;
     }
 
-    .logoCol {
+    .logos {
         grid-column: 1 / -1;
-        justify-content: flex-start;
+        justify-content: center;
+    }
+
+    .watermark {
+        font-size: 20vw;
     }
 }
 
 @media (max-width: 480px) {
     .inner {
         grid-template-columns: 1fr;
-    }
-
-    .logoCol {
-        flex-direction: row;
     }
 }
