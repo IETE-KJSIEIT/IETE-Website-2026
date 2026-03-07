@@ -1,0 +1,281 @@
+/* ==========================================
+   OSCILLATION 2026 — Global CSS
+   ========================================== */
+
+/* === CSS Variables === */
+:root {
+  --primary: hsl(195, 100%, 50%);
+  --secondary: hsl(270, 80%, 60%);
+  --accent-pink: hsl(320, 90%, 60%);
+  --bg: hsl(230, 25%, 5%);
+  --bg-2: hsl(230, 22%, 8%);
+  --bg-3: hsl(230, 20%, 11%);
+  --text: hsl(210, 40%, 93%);
+  --text-muted: hsl(215, 20%, 65%);
+  --border: hsl(215, 30%, 18%);
+  --glow-cyan: 0 0 10px hsl(195, 100%, 50%), 0 0 30px hsl(195, 100%, 50%, 0.4);
+  --glow-purple: 0 0 10px hsl(270, 80%, 60%), 0 0 30px hsl(270, 80%, 60%, 0.4);
+  --font-display: 'Orbitron', sans-serif;
+  --font-sub: 'Rajdhani', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+}
+
+/* === Reset & Base === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === Scanlines overlay === */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.04) 2px,
+      rgba(0, 0, 0, 0.04) 4px);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(195, 100%, 50%, 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* === Shared Button === */
+.btn {
+  display: inline-block;
+  font-family: var(--font-sub);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  padding: 0.85rem 2.5rem;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: hsl(230, 25%, 5%);
+  border-color: var(--primary);
+  box-shadow: 0 0 20px hsl(195, 100%, 50%, 0.4);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--primary);
+  box-shadow: 0 0 30px hsl(195, 100%, 50%, 0.6), inset 0 0 20px hsl(195, 100%, 50%, 0.05);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--secondary);
+  border-color: var(--secondary);
+  box-shadow: 0 0 15px hsl(270, 80%, 60%, 0.3);
+}
+
+.btn-secondary:hover {
+  background: var(--secondary);
+  color: #fff;
+  box-shadow: 0 0 30px hsl(270, 80%, 60%, 0.5);
+  transform: translateY(-2px);
+}
+
+/* === Section common === */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.glow-cyan {
+  color: var(--primary);
+  text-shadow: var(--glow-cyan);
+}
+
+.glow-purple {
+  color: var(--secondary);
+  text-shadow: var(--glow-purple);
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  letter-spacing: 0.03em;
+}
+
+/* === Reveal animations === */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+/* ============================================
+   HOME PAGE — Animation classes
+   (used by AboutSection, AwardsSection, etc.)
+   ============================================ */
+@keyframes cyanTextGlow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 8px #00ffff, 0 0 20px #00ffff;
+  }
+
+  50% {
+    text-shadow: 0 0 20px #00ffff, 0 0 40px #00eeee, 0 0 60px #00dddd;
+  }
+}
+
+@keyframes blueTitleGlow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.6), 0 0 25px rgba(0, 191, 255, 0.4);
+  }
+
+  50% {
+    text-shadow: 0 0 20px rgba(0, 191, 255, 0.9), 0 0 45px rgba(0, 191, 255, 0.6);
+  }
+}
+
+@keyframes blueBorderGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.3), inset 0 0 10px rgba(0, 191, 255, 0.05);
+  }
+
+  50% {
+    box-shadow: 0 0 28px rgba(0, 191, 255, 0.55), inset 0 0 20px rgba(0, 191, 255, 0.1);
+  }
+}
+
+@keyframes borderPulse {
+
+  0%,
+  100% {
+    border-color: rgba(0, 255, 255, 0.2);
+  }
+
+  50% {
+    border-color: rgba(0, 255, 255, 0.55);
+  }
+}
+
+@keyframes awardsCardGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(0, 100, 255, 0.1), inset 0 0 8px rgba(0, 100, 255, 0.02);
+  }
+
+  50% {
+    box-shadow: 0 0 18px rgba(0, 191, 255, 0.18), inset 0 0 12px rgba(0, 191, 255, 0.04);
+  }
+}
+
+@keyframes awardsTitleGlow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 6px rgba(30, 144, 255, 0.3), 0 0 14px rgba(30, 144, 255, 0.12);
+  }
+
+  50% {
+    text-shadow: 0 0 12px rgba(30, 144, 255, 0.5), 0 0 24px rgba(0, 191, 255, 0.2);
+  }
+}
+
+.cyan-glow-text {
+  animation: cyanTextGlow 2.5s ease-in-out infinite;
+}
+
+.neon-blue-title {
+  animation: blueTitleGlow 2.8s ease-in-out infinite;
+}
+
+.image-placeholder-card {
+  animation: blueBorderGlow 2.5s ease-in-out infinite;
+}
+
+.border-pulse {
+  animation: borderPulse 2s ease-in-out infinite;
+}
+
+.awards-card {
+  animation: awardsCardGlow 3s ease-in-out infinite;
+}
+
+.awards-title {
+  animation: awardsTitleGlow 2.8s ease-in-out infinite;
+}

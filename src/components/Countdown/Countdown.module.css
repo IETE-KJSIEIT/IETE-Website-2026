@@ -1,0 +1,250 @@
+.section {
+    background: var(--bg-1);
+    padding: 5rem 2rem;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.countdownWrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: var(--glow-cyan);
+}
+
+/* The timer grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.label {
+    font-family: var(--font-sub);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+/* FLIP CARD AESTHETIC */
+.flipCard {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 0.8;
+    background: #111;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    perspective: 1000px;
+    /* Gives 3D depth */
+}
+
+.num {
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    width: 100%;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    /* Ensure single digits still look nice */
+}
+
+.cardTop,
+.cardBottom,
+.cardFlapTop,
+.cardFlapBottom {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    background: #1a1a24;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+}
+
+.cardTop,
+.cardFlapTop {
+    top: 0;
+    transform-origin: bottom;
+    background: linear-gradient(to bottom, #2a2a35 0%, #1a1a24 100%);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    align-items: flex-end;
+    /* Push text down to split */
+}
+
+.cardTop .num,
+.cardFlapTop .num {
+    transform: translateY(50%);
+    /* Pull text down halfway across split */
+}
+
+.cardBottom,
+.cardFlapBottom {
+    bottom: 0;
+    transform-origin: top;
+    background: linear-gradient(to bottom, #101018 0%, #1a1a24 100%);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    align-items: flex-start;
+    /* Push text up to split */
+}
+
+.cardBottom .num,
+.cardFlapBottom .num {
+    transform: translateY(-50%);
+    /* Pull text up halfway across split */
+}
+
+/* Base static positions */
+.cardTop {
+    z-index: 1;
+}
+
+.cardBottom {
+    z-index: 2;
+}
+
+/* The container for the animated flaps, required to stack correctly */
+.flapsContainer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    perspective: 1000px;
+    z-index: 5;
+}
+
+/* Flap starting positions */
+.cardFlapTop {
+    z-index: 6;
+    transform: rotateX(0deg);
+}
+
+.cardFlapBottom {
+    z-index: 5;
+    transform: rotateX(90deg);
+    /* Start hidden/perpendicular */
+}
+
+/* Trigger the animations when 'flipping' class is added */
+.cardFlapTop.flipping {
+    animation: flipTop 0.3s ease-in forwards;
+}
+
+.cardFlapBottom.flipping {
+    animation: flipBottom 0.3s ease-out 0.3s forwards;
+}
+
+@keyframes flipTop {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    100% {
+        transform: rotateX(-90deg);
+    }
+}
+
+@keyframes flipBottom {
+    0% {
+        transform: rotateX(90deg);
+    }
+
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+/* The horizontal split line */
+.hinge {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #000;
+    transform: translateY(-50%);
+    z-index: 10;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Card edges/pins */
+.hinge::before,
+.hinge::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 6px;
+    height: 12px;
+    background: #0a0a0f;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    transform: translateY(-50%);
+}
+
+.hinge::before {
+    left: -2px;
+}
+
+.hinge::after {
+    right: -2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .countdownWrapper {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        gap: 1.5rem 1rem;
+    }
+
+    .unit {
+        gap: 1rem;
+    }
+
+    .num {
+        font-size: 3.5rem;
+    }
+}

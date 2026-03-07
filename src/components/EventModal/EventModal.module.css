@@ -1,0 +1,282 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-out both;
+    padding: 1rem;
+}
+
+.overlayClosing {
+    animation: fadeOut 0.38s ease-in both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* The outer wrapper for the gradient border effect */
+.boxWrapper {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    animation: openHud 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    filter: drop-shadow(0 0 20px rgba(0, 200, 255, 0.2));
+}
+
+.themeNonTech.boxWrapper {
+    filter: drop-shadow(0 0 20px rgba(160, 80, 240, 0.2));
+}
+
+@keyframes openHud {
+    0% {
+        transform: scaleX(0.01) scaleY(0.01);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scaleX(1) scaleY(0.01);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scaleX(1) scaleY(1);
+    }
+}
+
+/* Reverse: collapses Y first, then X */
+.closing {
+    animation: closeHud 0.38s cubic-bezier(0.7, 0, 0.84, 0) both;
+}
+
+@keyframes closeHud {
+    0% {
+        transform: scaleX(1) scaleY(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scaleX(1) scaleY(0.01);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scaleX(0.01) scaleY(0.01);
+        opacity: 0;
+    }
+}
+
+/* The actual HUD Box with cut corners */
+.box {
+    background: rgba(5, 8, 15, 0.95);
+    /* Octagon / angled corners */
+    clip-path: polygon(20px 0,
+            100% 0,
+            100% calc(100% - 20px),
+            calc(100% - 20px) 100%,
+            0 100%,
+            0 20px);
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Animated scanner line over the content */
+.box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(transparent,
+            transparent 2px,
+            rgba(0, 200, 255, 0.03) 3px,
+            rgba(0, 200, 255, 0.03) 4px);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.themeNonTech .box::after {
+    background: repeating-linear-gradient(transparent,
+            transparent 2px,
+            rgba(160, 80, 240, 0.03) 3px,
+            rgba(160, 80, 240, 0.03) 4px);
+}
+
+/* HUD Top Border */
+.hudTop {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 0;
+    height: 4px;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.themeNonTech .hudTop {
+    background: var(--secondary);
+    box-shadow: 0 0 10px var(--secondary);
+}
+
+/* HUD Bottom Border */
+.hudBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 20px;
+    height: 4px;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.themeNonTech .hudBottom {
+    background: var(--secondary);
+    box-shadow: 0 0 10px var(--secondary);
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 20;
+    transition: color 0.2s;
+    font-family: monospace;
+    letter-spacing: 0.1em;
+}
+
+.themeTech .close:hover {
+    color: var(--primary);
+    text-shadow: 0 0 8px var(--primary);
+}
+
+.themeNonTech .close:hover {
+    color: var(--secondary);
+    text-shadow: 0 0 8px var(--secondary);
+}
+
+/* HUD Content Layout */
+.headerLayout {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1.5rem;
+}
+
+.iconBox {
+    font-size: 3.5rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+
+.titleBox {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.badge {
+    font-family: monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+}
+
+.themeTech .badge {
+    color: var(--primary);
+}
+
+.themeNonTech .badge {
+    color: var(--secondary);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.themeTech .title {
+    text-shadow: 0 0 10px rgba(0, 200, 255, 0.4);
+}
+
+.themeNonTech .title {
+    text-shadow: 0 0 10px rgba(160, 80, 240, 0.4);
+}
+
+.desc {
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    font-family: monospace;
+    /* Gives it a terminal read-out vibe */
+}
+
+/* Action button area */
+.registerBtn {
+    align-self: flex-start;
+    padding: 0.75rem 2.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: transparent;
+    border-radius: 0;
+    /* Sharp corners for HUD */
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    position: relative;
+    z-index: 20;
+}
+
+.themeTech .registerBtn {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.themeTech .registerBtn:hover {
+    background: rgba(0, 200, 255, 0.15);
+    box-shadow: inset 0 0 15px rgba(0, 200, 255, 0.3);
+}
+
+.themeNonTech .registerBtn {
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.themeNonTech .registerBtn:hover {
+    background: rgba(160, 80, 240, 0.15);
+    box-shadow: inset 0 0 15px rgba(160, 80, 240, 0.3);
+}

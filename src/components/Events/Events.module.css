@@ -1,0 +1,405 @@
+/* ==========================================
+   EVENTS — Diamond Layout
+   ========================================== */
+
+.section {
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+    padding-bottom: 4rem;
+}
+
+/* Override global section-container to give more horizontal room */
+.section :global(.section-container) {
+    max-width: 1400px;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+}
+
+/* Two hubs side by side */
+.hubs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 0.5rem;
+    align-items: start;
+}
+
+/* ── Single hub ── */
+.diamond {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.hubHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.hubLabel {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.2vw, 2rem);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.hubSub {
+    font-family: var(--font-sub);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+}
+
+.techLabel {
+    color: var(--primary);
+    text-shadow: var(--glow-cyan);
+}
+
+.nontechLabel {
+    color: var(--secondary);
+    text-shadow: var(--glow-purple);
+}
+
+/* ==========================================
+   3×3 DIAMOND GRID — BIGGER
+   ========================================== */
+.diamondGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 100%;
+    /* Bigger grid = more distance between center and nodes */
+    max-width: 520px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+}
+
+/* SVG overlay covering full grid */
+.connectorSvg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+}
+
+.connLine {
+    animation: dashScroll 2.5s linear infinite;
+}
+
+@keyframes dashScroll {
+    to {
+        stroke-dashoffset: -12;
+    }
+}
+
+.corner {
+    pointer-events: none;
+}
+
+.slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.slotTop {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.slotLeft {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.slotRight {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.slotBottom {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+/* ==========================================
+   CENTER HUB — smaller than before
+   ========================================== */
+.centerHub {
+    grid-column: 2;
+    grid-row: 2;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 2px solid;
+    /* Increased top/bottom margin shrinks the box vertically, reduced left/right makes it wider */
+    margin: 54px 16px;
+}
+
+.techCenter {
+    border-color: var(--primary);
+    background: hsl(195, 100%, 50%, 0.07);
+    box-shadow:
+        0 0 24px hsl(195, 100%, 50%, 0.3),
+        inset 0 0 18px hsl(195, 100%, 50%, 0.1);
+}
+
+.nontechCenter {
+    border-color: var(--secondary);
+    background: hsl(270, 80%, 60%, 0.07);
+    box-shadow:
+        0 0 24px hsl(270, 80%, 60%, 0.3),
+        inset 0 0 18px hsl(270, 80%, 60%, 0.1);
+}
+
+.centerLabel {
+    font-family: var(--font-display);
+    font-size: clamp(0.5rem, 1vw, 0.75rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    position: relative;
+    z-index: 2;
+}
+
+.centerPulse {
+    position: absolute;
+    inset: -6px;
+    border-radius: 14px;
+    pointer-events: none;
+    animation: centerPulseAnim 2.5s ease-in-out infinite;
+}
+
+.techPulse {
+    border: 1px solid hsl(195, 100%, 50%, 0.4);
+    box-shadow: 0 0 16px hsl(195, 100%, 50%, 0.25);
+}
+
+.nontechPulse {
+    border: 1px solid hsl(270, 80%, 60%, 0.4);
+    box-shadow: 0 0 16px hsl(270, 80%, 60%, 0.25);
+}
+
+@keyframes centerPulseAnim {
+
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.06);
+    }
+}
+
+/* ==========================================
+   NODE WRAPPER
+   ========================================== */
+.nodeWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+/* ==========================================
+   EVENT NODES — larger than before
+   ========================================== */
+.node {
+    position: relative;
+    width: clamp(80px, 11vw, 108px);
+    height: clamp(80px, 11vw, 108px);
+    border-radius: 50%;
+    border: 2px solid;
+    background: var(--bg-3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    outline: none;
+    flex-shrink: 0;
+}
+
+.node:hover {
+    transform: scale(1.13);
+}
+
+.techNode {
+    border-color: var(--primary);
+    box-shadow: 0 0 16px hsl(195, 100%, 50%, 0.4);
+}
+
+.nontechNode {
+    border-color: var(--secondary);
+    box-shadow: 0 0 16px hsl(270, 80%, 60%, 0.4);
+}
+
+.techNode:hover {
+    box-shadow: 0 0 36px hsl(195, 100%, 50%, 0.7),
+        0 0 10px hsl(195, 100%, 50%, 0.4);
+}
+
+.nontechNode:hover {
+    box-shadow: 0 0 36px hsl(270, 80%, 60%, 0.7),
+        0 0 10px hsl(270, 80%, 60%, 0.4);
+}
+
+/* Spinning outer ring */
+.outerRing {
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    pointer-events: none;
+    animation: spinRing 7s linear infinite;
+}
+
+.techNode .outerRing {
+    border-top-color: hsl(195, 100%, 50%, 0.9);
+    border-left-color: hsl(195, 100%, 50%, 0.25);
+    filter: drop-shadow(0 0 5px hsl(195, 100%, 50%, 0.6));
+}
+
+.nontechNode .outerRing {
+    border-top-color: hsl(270, 80%, 60%, 0.9);
+    border-left-color: hsl(270, 80%, 60%, 0.25);
+    filter: drop-shadow(0 0 5px hsl(270, 80%, 60%, 0.6));
+    animation-direction: reverse;
+}
+
+@keyframes spinRing {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Inner radial glow */
+.innerGlow {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: glowPulse 2.8s ease-in-out infinite;
+}
+
+.techNode .innerGlow {
+    background: radial-gradient(circle, hsl(195, 100%, 50%, 0.18) 0%, transparent 70%);
+    box-shadow: inset 0 0 20px hsl(195, 100%, 50%, 0.18);
+}
+
+.nontechNode .innerGlow {
+    background: radial-gradient(circle, hsl(270, 80%, 60%, 0.18) 0%, transparent 70%);
+    box-shadow: inset 0 0 20px hsl(270, 80%, 60%, 0.18);
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Emoji */
+.nodeEmoji {
+    font-size: clamp(2rem, 3.5vw, 2.6rem);
+    line-height: 1;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+    animation: float 3.5s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Node label */
+.nodeLabel {
+    font-family: var(--font-sub);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    text-align: center;
+    max-width: 100px;
+    line-height: 1.3;
+}
+
+/* Locked */
+.locked {
+    cursor: not-allowed;
+    opacity: 0.38;
+}
+
+.locked:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.locked .outerRing {
+    animation: none;
+    border-color: transparent;
+    filter: none;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 1024px) {
+    .diamondGrid {
+        max-width: 420px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hubs {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .diamondGrid {
+        max-width: 460px;
+    }
+}
+
+@media (max-width: 560px) {
+    .diamondGrid {
+        max-width: 320px;
+    }
+
+    .centerHub {
+        margin: 36px 8px;
+    }
+
+    .nodeLabel {
+        font-size: 0.62rem;
+        max-width: 72px;
+    }
+}

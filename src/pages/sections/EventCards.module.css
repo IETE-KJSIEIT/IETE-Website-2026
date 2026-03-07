@@ -1,0 +1,264 @@
+.section {
+    padding: 3rem 0 4rem;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.03em;
+}
+
+.sectionSub {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+/* ── Group divider ── */
+.groupLabel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.groupLabelMt {
+    margin-top: 2.5rem;
+}
+
+.groupLine {
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.groupTag {
+    font-family: var(--font-sub);
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    white-space: nowrap;
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    border: 1px solid;
+}
+
+.tagCyan {
+    color: var(--primary);
+    border-color: rgba(0, 200, 255, 0.3);
+    background: rgba(0, 200, 255, 0.06);
+}
+
+.tagPurple {
+    color: var(--secondary);
+    border-color: rgba(160, 80, 240, 0.3);
+    background: rgba(160, 80, 240, 0.06);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.03em;
+}
+
+.sectionSub {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+/* ── Tabs ── */
+.tabs {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.tab {
+    font-family: var(--font-sub);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.4rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.tab:hover {
+    border-color: rgba(255, 255, 255, 0.28);
+    color: #fff;
+}
+
+.tabActive {
+    background: rgba(0, 200, 255, 0.1);
+    border-color: rgba(0, 200, 255, 0.4);
+    color: var(--primary);
+}
+
+/* ── Cards grid ── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.card {
+    position: relative;
+    background: rgba(5, 8, 18, 0.85);
+    border-radius: 4px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.cardCornerTL,
+.cardCornerBR {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+}
+
+.cardCornerTL {
+    top: 0;
+    left: 0;
+    border-top: 2px solid;
+    border-left: 2px solid;
+}
+
+.cardCornerBR {
+    bottom: 0;
+    right: 0;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+}
+
+.cardCyan {
+    border: 1px solid rgba(0, 200, 255, 0.14);
+}
+
+.cardCyan:hover {
+    box-shadow: 0 8px 28px rgba(0, 200, 255, 0.12);
+    border-color: rgba(0, 200, 255, 0.28);
+}
+
+.cardCyan .cardCornerTL,
+.cardCyan .cardCornerBR {
+    border-color: var(--primary);
+}
+
+.cardPurple {
+    border: 1px solid rgba(160, 80, 240, 0.14);
+}
+
+.cardPurple:hover {
+    box-shadow: 0 8px 28px rgba(160, 80, 240, 0.12);
+    border-color: rgba(160, 80, 240, 0.28);
+}
+
+.cardPurple .cardCornerTL,
+.cardPurple .cardCornerBR {
+    border-color: var(--secondary);
+}
+
+/* Card header row */
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.emoji {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.catBadge {
+    font-family: var(--font-sub);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    padding: 0.2rem 0.65rem;
+    border-radius: 100px;
+    border: 1px solid;
+}
+
+.badgeCyan {
+    color: var(--primary);
+    border-color: rgba(0, 200, 255, 0.35);
+    background: rgba(0, 200, 255, 0.07);
+}
+
+.badgePurple {
+    color: var(--secondary);
+    border-color: rgba(160, 80, 240, 0.35);
+    background: rgba(160, 80, 240, 0.07);
+}
+
+.tagline {
+    font-family: var(--font-sub);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.02em;
+}
+
+.desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .section {
+        min-height: auto;
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

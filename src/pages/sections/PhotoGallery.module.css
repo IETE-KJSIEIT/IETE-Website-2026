@@ -1,0 +1,127 @@
+.section {
+    padding: 3rem 0 5rem;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.pill {
+    display: inline-block;
+    font-family: var(--font-sub);
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #fff;
+}
+
+.sectionSub {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 480px;
+}
+
+/* Pinterest masonry using CSS columns */
+.masonry {
+    columns: 4 220px;
+    column-gap: 1rem;
+    orphans: 1;
+    widows: 1;
+}
+
+.item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Height variants for Pinterest look */
+.item.normal .imgPlaceholder {
+    height: 200px;
+}
+
+.item.tall .imgPlaceholder {
+    height: 320px;
+}
+
+.item.wide .imgPlaceholder {
+    height: 160px;
+}
+
+.imgPlaceholder {
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+}
+
+.item:hover .imgPlaceholder {
+    transform: scale(1.03);
+}
+
+/* Internal grid texture */
+.gridTex {
+    position: absolute;
+    inset: 0;
+    background-size: 20px 20px;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    pointer-events: none;
+}
+
+/* Overlay on hover */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+}
+
+.item:hover .overlay {
+    opacity: 1;
+}
+
+.overlayText {
+    font-family: var(--font-sub);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+}
+
+.photoNote {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 600px) {
+    .masonry {
+        columns: 2 140px;
+    }
+}
