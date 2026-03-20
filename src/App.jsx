@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import CanvasBackground from './components/CanvasBackground/CanvasBackground';
+import WaveBackground from './components/WaveBackground/WaveBackground';
 import ScrollNavbar from './components/ScrollNavbar/ScrollNavbar';
 import Hero from './components/Hero/Hero';
 import Countdown from './components/Countdown/Countdown';
@@ -12,7 +12,7 @@ import IETEHomePage from './pages/IETEHomePage';
 function OscillationPage() {
   return (
     <>
-      <CanvasBackground />
+      <WaveBackground />
       <ScrollNavbar scrollProgress={1} />
       <main>
         <Hero />

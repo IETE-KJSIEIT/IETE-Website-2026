@@ -2,6 +2,9 @@ import styles from './Footer.module.css';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
+    const handleNavigation = () => {
+        window.scrollTo(0, 0);
+    };
     return (
         <footer className={styles.footer}>
 
@@ -22,20 +25,20 @@ export default function Footer() {
                 {/* Navigation */}
                 <div className={styles.col}>
                     <h4 className={styles.colTitle}>Navigation</h4>
-                    <Link to="/" className={styles.link}>Home</Link>
-                    <Link to="/oscillation" className={styles.link}>Oscillation</Link>
-                    <Link to="/events" className={styles.link}>Past Events</Link>
+                    <Link to="/" className={styles.link} onClick={handleNavigation}>Home</Link>
+                    <Link to="/oscillation" className={styles.link} onClick={handleNavigation}>Oscillation</Link>
+                    <Link to="/events" className={styles.link} onClick={handleNavigation}>Past Events</Link>
                 </div>
 
                 {/* Logos */}
                 <div className={styles.logos}>
                     <div className={styles.logoBubble}>
-                        <img src="/logo-iete.png" alt="IETE" className={styles.logoImg} onError={e => e.target.style.display = 'none'} />
-                        <span className={styles.logoFallback}>IETE</span>
+                        <img src="/logos/iete-logo.png" alt="IETE" className={`${styles.logoImg} ${styles.logoImgRound}`} onError={e => e.target.style.display = 'none'} />
+
                     </div>
                     <div className={styles.logoBubble}>
-                        <img src="/logo-kjsit.png" alt="KJSIT" className={styles.logoImg} onError={e => e.target.style.display = 'none'} />
-                        <span className={styles.logoFallback}>KJSIT</span>
+                        <img src="/logos/kjsit-logo.png" alt="KJSIT" className={styles.logoImg} onError={e => e.target.style.display = 'none'} />
+
                     </div>
                 </div>
             </div>

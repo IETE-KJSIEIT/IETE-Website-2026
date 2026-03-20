@@ -1,171 +1,160 @@
-.overlay {
+/* ─── Loader Wrapper ─── */
+.loaderWrapper {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #000;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    transition: opacity 0.6s ease;
+    background-color: #050914;
+    transition: opacity 0.8s ease-in-out;
 }
 
-.circuitCanvas {
+/* ─── Canvas ─── */
+.canvas {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    display: block;
+    z-index: 1;
 }
 
-.center {
-    position: relative;
+/* ─── Vignette ─── */
+.vignette {
+    position: absolute;
+    inset: 0;
     z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 30%, #050914 100%);
+}
+
+/* ─── Text Container ─── */
+.textContainer {
+    position: relative;
+    z-index: 10;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
-    /* Tight control via margins */
-    margin-top: -2rem;
-    /* Move up slightly to balance progress bar */
+    /* Starts hidden and scaled down slightly */
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* "IGNITE INNOVATION — IETE KJSIT" line above main title */
-.subtitle {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: clamp(0.6rem, 1.5vw, 0.9rem);
-    letter-spacing: 0.4em;
-    color: rgba(255, 255, 255, 0.45);
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-    z-index: 5;
+.textContainer.show {
+    opacity: 1;
+    transform: scale(1);
 }
 
-/* Main title row */
-.title {
-    font-family: var(--font-display, 'Courier New', monospace);
-    font-size: clamp(3rem, 9vw, 7.5rem);
-    font-weight: 200;
-    letter-spacing: 0.25em;
-    color: rgba(255, 255, 255, 0.92);
-    line-height: 1;
-    margin: 0;
+/* ─── Title Wrapper (chromatic layers stack here) ─── */
+.titleWrapper {
     position: relative;
-    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* "IETE" — bold, cyan-tinted with static chromatic split shadow */
-.titleMain {
-    font-weight: 600;
-    color: var(--primary);
-    text-shadow:
-        -3px 0 rgba(168, 85, 247, 0.6),
-        /* Purple ghost left */
-        3px 0 rgba(0, 200, 255, 0.5),
-        /* Cyan ghost right */
-        0 0 20px rgba(0, 200, 255, 0.6),
-        0 0 40px rgba(0, 200, 255, 0.2);
-}
-
-/* "KJSIT" — thin, white with static chromatic split shadow */
-.titleSub {
-    font-weight: 200;
-    color: rgba(255, 255, 255, 0.95);
-    text-shadow:
-        -3px 0 rgba(168, 85, 247, 0.6),
-        3px 0 rgba(0, 200, 255, 0.5),
-        0 0 15px rgba(255, 255, 255, 0.4);
-}
-
-/* Mirror reflection below title — flush against text */
-.reflection {
-    font-family: var(--font-display, 'Courier New', monospace);
-    font-size: clamp(3rem, 9vw, 7.5rem);
-    font-weight: 200;
+.titleText {
+    font-family: var(--font-mono);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 500;
     letter-spacing: 0.25em;
-    line-height: 1;
-    transform: scaleY(-1);
-    -webkit-mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
-    mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
-    opacity: 0.35;
-    pointer-events: none;
-    margin-top: -2px;
-    /* Pull it tight against the baseline */
-    z-index: 1;
+    margin-right: -0.25em;
+    /* Compensate for tracking */
+    user-select: none;
+    white-space: nowrap;
+    color: #e0f7fa;
 }
 
-.year {
-    font-family: var(--font-sub, 'Courier New', monospace);
-    font-size: clamp(0.7rem, 1.8vw, 0.95rem);
-    font-weight: bold;
-    letter-spacing: 0.7em;
-    color: rgba(0, 200, 255, 0.55);
-    margin-top: -1.8rem;
-    /* Nestled tight beneath the text gap */
-    z-index: 8;
-    position: relative;
-}
-
-@keyframes glitch {
-
-    0%,
-    90%,
-    100% {
-        text-shadow: 0 0 30px rgba(0, 200, 255, 0.4);
-        transform: translateX(0);
-    }
-
-    91% {
-        text-shadow: -2px 0 rgba(168, 85, 247, 0.7), 2px 0 rgba(0, 200, 255, 0.7);
-        transform: translateX(-2px);
-    }
-
-    93% {
-        text-shadow: 2px 0 rgba(168, 85, 247, 0.7), -2px 0 rgba(0, 200, 255, 0.7);
-        transform: translateX(2px);
-    }
-
-    95% {
-        text-shadow: 0 0 30px rgba(0, 200, 255, 0.4);
-        transform: translateX(0);
-    }
-}
-
-/* Progress bar */
-.progressWrap {
+/* Chromatic Aberration Layers */
+.titleLayer {
     position: absolute;
-    bottom: 3.5rem;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layerCyan {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(0, 220, 255, 0.4);
+    transform: translateX(-3px);
+    filter: blur(1.5px);
+}
+
+.layerPurple {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(160, 80, 255, 0.4);
+    transform: translateX(3px);
+    filter: blur(1.5px);
+}
+
+.layerMain {
+    position: relative;
+    text-shadow:
+        0 0 15px rgba(0, 220, 255, 0.6),
+        0 0 40px rgba(0, 220, 255, 0.3),
+        0 0 80px rgba(160, 80, 255, 0.2);
+}
+
+/* ─── Subtitle ─── */
+.subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.6em;
+    margin-right: -0.6em;
+    color: rgba(0, 220, 255, 0.7);
+    margin-top: 0.5rem;
+    /* Subtitle fades in slightly after the main title */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+}
+
+.textContainer.show .subtitle {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ─── Progress Bar ─── */
+.progressWrapper {
+    position: absolute;
+    bottom: 12%;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
-    width: min(320px, 60vw);
-    z-index: 2;
+    gap: 0.5rem;
+    width: 250px;
 }
 
 .progressTrack {
     width: 100%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.08);
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 2px;
     overflow: hidden;
 }
 
-.progressBar {
+.progressFill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    border-radius: 2px;
-    box-shadow: 0 0 12px rgba(0, 200, 255, 0.6);
-    transition: width 0.05s linear;
+    background: linear-gradient(90deg, #00dcff, #a050ff);
+    box-shadow: 0 0 10px rgba(0, 220, 255, 0.8);
+    transition: width 0.1s linear;
 }
 
-.loadingText {
-    font-family: var(--font-sub, 'Courier New', monospace);
-    font-size: 0.6rem;
-    letter-spacing: 0.5em;
-    color: rgba(255, 255, 255, 0.18);
+.progressText {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.3em;
+    margin-right: -0.3em;
 }

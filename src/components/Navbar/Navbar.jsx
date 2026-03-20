@@ -25,6 +25,12 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
+    // Lock body scroll when menu is open
+    useEffect(() => {
+        document.body.style.overflow = menuOpen ? 'hidden' : '';
+        return () => { document.body.style.overflow = ''; };
+    }, [menuOpen]);
+
     // Intersection Observer for active link (only on Oscillation page)
     useEffect(() => {
         if (isEventsPage) return;
@@ -45,7 +51,6 @@ export default function Navbar() {
         e.preventDefault();
         setMenuOpen(false);
         if (isEventsPage) {
-            // Navigate back to home page then scroll
             navigate(href);
         } else {
             const id = href.replace('/#', '');
@@ -54,9 +59,6 @@ export default function Navbar() {
     };
 
     const handleLinkClick = () => setMenuOpen(false);
-
-    // Determine logo href
-    const logoHref = isEventsPage ? '/' : '/#home';
 
     return (
         <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
@@ -78,11 +80,10 @@ export default function Navbar() {
                             {label}
                         </a>
                     ))}
-                    {/* Events — always a route link */}
                     <Link
                         to="/events"
                         className={`${styles.link} ${isEventsPage ? styles.active : ''}`}
-                        onClick={handleLinkClick}
+                        onClick={() => { handleLinkClick(); window.scrollTo(0, 0); }}
                     >
                         EVENTS
                     </Link>
@@ -98,21 +99,51 @@ export default function Navbar() {
                 </button>
             </nav>
 
-            {/* Mobile menu */}
+            {/* Backdrop */}
+            <div
+                className={`${styles.mobileBackdrop} ${menuOpen ? styles.backdropOpen : ''}`}
+                onClick={() => setMenuOpen(false)}
+            />
+
+            {/* Slide-in panel */}
             <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileOpen : ''}`}>
-                {SCROLL_ITEMS.map(({ label, href }) => (
-                    <a
-                        key={label}
-                        href={href}
-                        className={styles.mobileLink}
-                        onClick={(e) => handleScrollLink(e, href)}
-                    >
-                        {label}
+                {/* Panel header */}
+                <div className={styles.mobileMenuHeader}>
+                    <a href="#home" className={styles.mobileMenuLogo} onClick={() => setMenuOpen(false)}>
+                        OSCILLATION
                     </a>
-                ))}
-                <Link to="/events" className={styles.mobileLink} onClick={handleLinkClick}>
-                    EVENTS
-                </Link>
+                    <button className={styles.mobileMenuClose} onClick={() => setMenuOpen(false)} aria-label="Close menu">
+                        ×
+                    </button>
+                </div>
+
+                {/* Nav links */}
+                <div className={styles.mobileLinks}>
+                    {SCROLL_ITEMS.map(({ label, href }) => (
+                        <a
+                            key={label}
+                            href={href}
+                            className={`${styles.mobileLink} ${!isEventsPage && active === href.replace('/#', '') ? styles.mobileLinkActive : ''}`}
+                            onClick={(e) => handleScrollLink(e, href)}
+                        >
+                            {label}
+                            <span className={styles.mobileLinkArrow}>›</span>
+                        </a>
+                    ))}
+                    <Link
+                        to="/events"
+                        className={`${styles.mobileLink} ${isEventsPage ? styles.mobileLinkActive : ''}`}
+                        onClick={() => { handleLinkClick(); window.scrollTo(0, 0); }}
+                    >
+                        EVENTS
+                        <span className={styles.mobileLinkArrow}>›</span>
+                    </Link>
+                </div>
+
+                {/* Footer */}
+                <div className={styles.mobileMenuFooter}>
+                    IETE KJSIT · OSCILLATIONS 2026
+                </div>
             </div>
         </header>
     );

@@ -87,13 +87,13 @@ export const nonTechEvents = [
 
 export const workshops = [
     {
-        id: 'hackathon',
+        id: 'github-workshop',
         icon: '💻',
-        title: 'Hackathon',
-        category: 'Competition',
+        title: 'GitHub Workshop',
+        category: 'Workshop',
         year: '2024',
-        image: '/workshop-images/hackathon.jpg',
-        description: 'A 24-hour coding marathon challenging students to build innovative solutions for real-world problems.',
+        image: '/workshop-images/github.png',
+        description: 'An interactive workshop teaching students about Git, GitHub, Cloud concepts, and LinkedIn Optimization.',
     },
     {
         id: 'hp-gaming',
@@ -101,7 +101,7 @@ export const workshops = [
         title: 'HP Gaming Event',
         category: 'Gaming',
         year: '2024',
-        image: '/workshop-images/hp-gaming.jpg',
+        image: '/workshop-images/hp-gaming.png',
         description: 'An exciting gaming tournament showcasing strategy, teamwork, and quick reflexes in popular esports titles with HP hardware.',
     },
     {
@@ -110,7 +110,7 @@ export const workshops = [
         title: 'BMC School Workshop',
         category: 'Outreach',
         year: '2024',
-        image: '/workshop-images/bmc-workshop.jpg',
+        image: '/workshop-images/bmc-workshop.png',
         description: 'Knowledge-sharing session introducing school students to basic electronics and technology concepts.',
     },
     {
@@ -119,7 +119,7 @@ export const workshops = [
         title: 'BMC School Visit',
         category: 'Community',
         year: '2024',
-        image: '/workshop-images/bmc-visit.jpg',
+        image: '/workshop-images/bmc-visit.png',
         description: 'Interactive visit to inspire young minds about the future of engineering and innovation.',
     },
     {
@@ -128,7 +128,7 @@ export const workshops = [
         title: 'SnapAR Workshop',
         category: 'Workshop',
         year: '2024',
-        image: '/workshop-images/snapar.jpg',
+        image: '/workshop-images/snapar.png',
         description: "Hands-on session on Augmented Reality development using Snap's Lens Studio platform.",
     },
     {
@@ -137,7 +137,7 @@ export const workshops = [
         title: 'Arduino Workshop',
         category: 'Workshop',
         year: '2024',
-        image: '/workshop-images/arduino.jpg',
+        image: '/workshop-images/arduino.png',
         description: 'Practical training on microcontroller programming and circuit building with Arduino.',
     },
 ];

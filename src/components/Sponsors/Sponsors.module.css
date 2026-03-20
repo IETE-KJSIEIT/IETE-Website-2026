@@ -7,7 +7,7 @@
     border-top: 1px solid var(--border);
     position: relative;
     overflow: hidden;
-    padding-bottom: 5rem;
+    padding-bottom: 2.5rem;
 }
 
 /* ==========================================
@@ -16,7 +16,7 @@
 .mainWrapper {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    background: rgba(10, 10, 15, 0.4);
+    background: var(--bg-3);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 1rem;
@@ -50,7 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(20, 20, 25, 0.7);
+    background: var(--bg-2);
     position: relative;
     overflow: hidden;
 }
@@ -137,7 +137,7 @@
 .tierBox {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
-    background: rgba(15, 15, 20, 0.5);
+    background: var(--bg-3);
     padding: 1.5rem;
     position: relative;
     display: flex;
@@ -223,7 +223,7 @@
    SPONSOR CARD
    ========================================== */
 .card {
-    background: rgba(15, 15, 20, 0.8);
+    background: var(--bg-2);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 1.25rem 2rem;
@@ -250,6 +250,7 @@
     /* Border thickness */
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0;
@@ -258,7 +259,7 @@
 
 .card:hover {
     transform: translateY(-6px);
-    background: rgba(25, 25, 32, 0.9);
+    background: var(--bg-3);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
     z-index: 10;
 }

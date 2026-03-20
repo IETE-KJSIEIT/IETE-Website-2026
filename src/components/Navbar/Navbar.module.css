@@ -87,16 +87,18 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 8px;
+    z-index: 1100;
+    position: relative;
 }
 
 .hamburger span {
     display: block;
-    width: 24px;
+    width: 26px;
     height: 2px;
     background: var(--primary);
     border-radius: 2px;
-    transition: transform 0.3s, opacity 0.3s;
+    transition: transform 0.35s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.25s ease;
 }
 
 .hamburger.open span:nth-child(1) {
@@ -105,44 +107,144 @@
 
 .hamburger.open span:nth-child(2) {
     opacity: 0;
+    transform: scaleX(0);
 }
 
 .hamburger.open span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile Menu */
-.mobileMenu {
+/* Backdrop overlay */
+.mobileBackdrop {
     display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 990;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.mobileBackdrop.backdropOpen {
+    opacity: 1;
+}
+
+/* Slide-in panel from right */
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(85vw, 320px);
+    height: 100dvh;
+    z-index: 1000;
+    background: rgba(6, 8, 18, 0.98);
+    border-left: 1px solid rgba(0, 200, 255, 0.15);
+    display: flex;
     flex-direction: column;
-    background: rgba(8, 10, 20, 0.97);
-    border-top: 1px solid rgba(0, 200, 255, 0.1);
-    padding: 1rem 2rem 1.5rem;
-    gap: 0.5rem;
+    padding: 0;
+    overflow: hidden;
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.6);
 }
 
 .mobileMenu.mobileOpen {
+    right: 0;
+}
+
+/* Panel header */
+.mobileMenuHeader {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 200, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.mobileMenuLogo {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.15em;
+    text-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
+    text-decoration: none;
+}
+
+.mobileMenuClose {
+    all: unset;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.mobileMenuClose:hover {
+    background: rgba(255, 60, 60, 0.15);
+    border-color: rgba(255, 60, 60, 0.4);
+    color: #fff;
+}
+
+/* Nav links */
+.mobileLinks {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0;
+    flex: 1;
+    overflow-y: auto;
 }
 
 .mobileLink {
     font-family: var(--font-sub);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
-    letter-spacing: 0.15em;
-    color: var(--text-muted);
-    padding: 0.6rem 0;
-    border-bottom: 1px solid var(--border);
-    transition: color 0.3s;
+    letter-spacing: 0.18em;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 1rem 1.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: color 0.25s ease, background 0.25s ease, padding-left 0.25s ease;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
 }
 
 .mobileLink:last-child {
     border-bottom: none;
 }
 
-.mobileLink:hover {
+.mobileLink:hover,
+.mobileLinkActive {
     color: var(--primary);
+    background: rgba(0, 200, 255, 0.05);
+    padding-left: 2.2rem;
+}
+
+.mobileLinkArrow {
+    margin-left: auto;
+    color: rgba(0, 200, 255, 0.35);
+    font-size: 0.8rem;
+}
+
+/* Panel footer */
+.mobileMenuFooter {
+    padding: 1.2rem 1.8rem;
+    border-top: 1px solid rgba(0, 200, 255, 0.08);
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    color: rgba(0, 200, 255, 0.2);
+    letter-spacing: 0.2em;
+    flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
@@ -152,5 +254,9 @@
 
     .hamburger {
         display: flex;
+    }
+
+    .mobileBackdrop {
+        display: block;
     }
 }

@@ -8,8 +8,11 @@ import Footer from '../components/Footer/Footer';
 import styles from './IETEHomePage.module.css';
 
 export default function IETEHomePage() {
-    const [loaded, setLoaded] = useState(false);
-    const handleDone = useCallback(() => setLoaded(true), []);
+    const [loaded, setLoaded] = useState(() => sessionStorage.getItem('seenLoader') === '1');
+    const handleDone = useCallback(() => {
+        setLoaded(true);
+        sessionStorage.setItem('seenLoader', '1');
+    }, []);
 
     // scrollProgress: 0 = top, 1 = when About section top hits viewport
     const [scrollProgress, setScrollProgress] = useState(0);

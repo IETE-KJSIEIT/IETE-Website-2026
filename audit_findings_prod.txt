@@ -1,0 +1,25 @@
+--- PRODUCTION SCORES ---
+Performance: 27
+Accessibility: 98
+Best Practices: 100
+SEO: 92
+
+--- FAILED AUDITS AFFECTING MOBILE/PERFORMANCE ---
+- First Contentful Paint (Score: 0.15): First Contentful Paint marks the time at which the first text or image is painted
+- Largest Contentful Paint (Score: 0.02): Largest Contentful Paint marks the time at which the largest text or image is painted
+- Speed Index (Score: 0): Speed Index shows how quickly the contents of a page are visibly populated
+- Total Blocking Time (Score: 0): Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds
+- Max Potential First Input Delay (Score: 0.04): The maximum potential First Input Delay that your users could experience is the duration of the longest task
+- Time to Interactive (Score: 0.17): Time to Interactive is the amount of time it takes for the page to become fully interactive
+- Minimize main-thread work (Score: 0): Consider reducing the time spent parsing, compiling and executing JS
+- Reduce JavaScript execution time (Score: 0): Consider reducing the time spent parsing, compiling, and executing JS
+- Heading elements are not in a sequentially-descending order (Score: 0): Properly ordered headings that do not skip levels convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies
+- Avoid enormous network payloads (Score: 0.5): Large network payloads cost users real money and are highly correlated with long load times
+- Reduce unused CSS (Score: 0.5): Reduce unused rules from stylesheets and defer CSS not used for above-the-fold content to decrease bytes consumed by network activity
+- Reduce unused JavaScript (Score: 0.5): Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity
+- robots.txt is not valid (Score: 0): If your robots
+- Forced reflow (Score: 0): A forced reflow occurs when JavaScript queries geometric properties (such as offsetWidth) after styles have been invalidated by a change to the DOM state
+- Improve image delivery (Score: 0.5): Reducing the download time of images can improve the perceived load time of the page and LCP
+- LCP breakdown (Score: 0): Each [subpart has specific improvement strategies](https://developer
+- Network dependency tree (Score: 0): [Avoid chaining critical requests](https://developer
+- Render blocking requests (Score: 0): Requests are blocking the page's initial render, which may delay LCP

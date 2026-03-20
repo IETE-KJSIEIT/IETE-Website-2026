@@ -55,6 +55,40 @@ export default function AwardsSection() {
                     <div key={i} style={{ position: 'absolute', width: 18, height: 18, ...s }} />
                 ))}
 
+                {/* ── Award image ── */}
+                <div
+                    className="award-img-wrap"
+                    style={{
+                        width: '100%',
+                        maxWidth: 680,
+                        borderRadius: 14,
+                        border: '1.5px solid rgba(0,191,255,0.35)',
+                        overflow: 'hidden',
+                        background: 'rgba(0,15,40,0.6)',
+                        transition: 'box-shadow 0.35s ease, border-color 0.35s ease',
+                        boxShadow: '0 0 10px rgba(0,100,255,0.08)',
+                    }}
+                    onMouseEnter={e => {
+                        e.currentTarget.style.boxShadow = '0 0 20px rgba(0,191,255,0.2)'
+                        e.currentTarget.style.borderColor = 'rgba(0,191,255,0.5)'
+                    }}
+                    onMouseLeave={e => {
+                        e.currentTarget.style.boxShadow = '0 0 10px rgba(0,100,255,0.08)'
+                        e.currentTarget.style.borderColor = 'rgba(0,191,255,0.35)'
+                    }}
+                >
+                    <img
+                        src="/awards-photo.png"
+                        alt="IETE KJSIT — 3rd Best ISF in Mumbai · Oscillations 2025"
+                        style={{
+                            width: '100%',
+                            height: 'auto',
+                            display: 'block',
+                            objectFit: 'cover',
+                        }}
+                    />
+                </div>
+
                 {/* ── Header badge ── */}
                 <div style={{
                     display: 'flex',
@@ -106,47 +140,6 @@ export default function AwardsSection() {
                     education and innovation by conduction of{' '}
                     <span style={{ color: '#00BFFF', fontWeight: 600 }}>Oscillations 2025</span>
                 </p>
-
-                {/* ── Divider ── */}
-                <div style={{
-                    width: 240,
-                    height: 1,
-                    background: 'linear-gradient(90deg, transparent, rgba(30,144,255,0.5), transparent)',
-                }} />
-
-                {/* ── Award image ── */}
-                <div
-                    className="award-img-wrap"
-                    style={{
-                        width: '100%',
-                        maxWidth: 680,
-                        borderRadius: 14,
-                        border: '1.5px solid rgba(0,191,255,0.35)',
-                        overflow: 'hidden',
-                        background: 'rgba(0,15,40,0.6)',
-                        transition: 'box-shadow 0.35s ease, border-color 0.35s ease',
-                        boxShadow: '0 0 10px rgba(0,100,255,0.08)',
-                    }}
-                    onMouseEnter={e => {
-                        e.currentTarget.style.boxShadow = '0 0 20px rgba(0,191,255,0.2)'
-                        e.currentTarget.style.borderColor = 'rgba(0,191,255,0.5)'
-                    }}
-                    onMouseLeave={e => {
-                        e.currentTarget.style.boxShadow = '0 0 10px rgba(0,100,255,0.08)'
-                        e.currentTarget.style.borderColor = 'rgba(0,191,255,0.35)'
-                    }}
-                >
-                    <img
-                        src="/awards-photo.png"
-                        alt="IETE KJSIT — 3rd Best ISF in Mumbai · Oscillations 2025"
-                        style={{
-                            width: '100%',
-                            height: 'auto',
-                            display: 'block',
-                            objectFit: 'cover',
-                        }}
-                    />
-                </div>
 
                 {/* ── Footer label ── */}
                 <div style={{

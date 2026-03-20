@@ -3,18 +3,18 @@
    ========================================== */
 
 .section {
-    background: var(--bg-2);
+    background: transparent;
     border-top: 1px solid var(--border);
     position: relative;
     z-index: 1;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
 }
 
 /* Override global section-container to give more horizontal room */
 .section :global(.section-container) {
     max-width: 1400px;
-    padding-top: 5rem;
-    padding-bottom: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
 }
 
 /* Two hubs side by side */

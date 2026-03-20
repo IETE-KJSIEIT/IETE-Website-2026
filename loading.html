@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oscillation Loading Screen</title>
+  <style>
+    /* ─── CSS Reset & Fonts ─── */
+    /* Using Orbitron for that exact squared-off, futuristic tech font seen in the images */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+    :root {
+      --bg-color: #050914; /* Slightly deep navy/black from the screenshots */
+      --primary: #00dcff;
+      --neon-purple: #a050ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background-color: var(--bg-color);
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* ─── Loader Layout ─── */
+    #loader-wrapper {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg-color);
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 1;
+    }
+
+    #vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 30%, var(--bg-color) 100%);
+    }
+
+    /* ─── Typography & Effects ─── */
+    #text-container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Starts hidden and scaled down slightly */
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #text-container.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .title-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* The main title text styling to match the screenshot */
+    .title-text {
+      font-size: 3.5rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      margin-right: -0.25em; /* Compensate for right-side tracking */
+      user-select: none;
+      white-space: nowrap;
+      color: #e0f7fa; /* Slightly off-white/cyan */
+    }
+
+    @media (min-width: 768px) {
+      .title-text { font-size: 5rem; }
+    }
+
+    /* Chromatic Aberration Layers */
+    .title-layer {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .layer-cyan {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(0, 220, 255, 0.4);
+      transform: translateX(-3px);
+      filter: blur(1.5px);
+    }
+
+    .layer-purple {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(160, 80, 255, 0.4);
+      transform: translateX(3px);
+      filter: blur(1.5px);
+    }
+
+    .layer-main {
+      position: relative;
+      text-shadow: 
+        0 0 15px rgba(0, 220, 255, 0.6), 
+        0 0 40px rgba(0, 220, 255, 0.3), 
+        0 0 80px rgba(160, 80, 255, 0.2);
+    }
+
+    #subtitle {
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.6em;
+      margin-right: -0.6em;
+      color: rgba(0, 220, 255, 0.7);
+      margin-top: 0.5rem;
+      /* Subtitle fades in slightly after the main title */
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+    }
+
+    #text-container.show #subtitle {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Progress Bar ─── */
+    #progress-wrapper {
+      position: absolute;
+      bottom: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      width: 250px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--neon-purple));
+      box-shadow: 0 0 10px rgba(0, 220, 255, 0.8);
+      transition: width 0.1s linear;
+    }
+
+    #progress-text {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.3em;
+      margin-right: -0.3em;
+    }
+
+    /* ─── App Content ─── */
+    #app-content {
+      opacity: 0;
+      display: none;
+      text-align: center;
+      transition: opacity 1s ease;
+    }
+    
+    #app-content h1 {
+      color: var(--primary);
+      text-shadow: 0 0 20px rgba(0, 220, 255, 0.5);
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loader-wrapper">
+    <canvas id="cinematic-canvas"></canvas>
+    <div id="vignette"></div>
+
+    <div id="text-container">
+      <div class="title-wrapper">
+        <div class="title-layer title-text layer-cyan">OSCILLATION</div>
+        <div class="title-layer title-text layer-purple">OSCILLATION</div>
+        <div class="title-text layer-main">OSCILLATION</div>
+      </div>
+      <p id="subtitle">2026</p>
+    </div>
+
+    <div id="progress-wrapper">
+      <div class="progress-track">
+        <div id="progress-fill"></div>
+      </div>
+      <span id="progress-text">0%</span>
+    </div>
+  </div>
+
+  <div id="app-content">
+    <h1>SYSTEM ONLINE</h1>
+    <p style="margin-top: 10px; color: #888;">Welcome to the dashboard.</p>
+  </div>
+
+  <script>
+    /* ─── Math Helpers ─── */
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+    /* ─── State Variables ─── */
+    let progress = 0;
+    let phase = 0;
+    let time = 0;
+    let W = 0, H = 0;
+    let nodes = [];
+    let lasers = [{ progress: 0 }, { progress: 0 }, { progress: 0 }, { progress: 0 }];
+
+    /* ─── Canvas Setup ─── */
+    const canvas = document.getElementById("cinematic-canvas");
+    const ctx = canvas.getContext("2d");
+
+    function initCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = window.innerWidth;
+      H = window.innerHeight;
+      
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
+      ctx.scale(dpr, dpr);
+
+      // Setup random floating nodes for the background
+      nodes = [];
+      for (let i = 0; i < 40; i++) {
+        nodes.push({
+          x: W * 0.2 + Math.random() * W * 0.6,
+          y: H * 0.2 + Math.random() * H * 0.6,
+          on: 0,
+          flicker: Math.random() * 6,
+        });
+      }
+    }
+
+    window.addEventListener("resize", initCanvas);
+    initCanvas();
+
+    /* ─── Render Loop ─── */
+    function render() {
+      const cx = W / 2;
+      const cy = H / 2;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Phase 1: Center Laser Core
+      if (phase >= 1) {
+        const laserProg = clamp((progress - 0.0) / 0.25, 0, 1);
+        const eased = laserProg * laserProg * (3 - 2 * laserProg);
+
+        lasers.forEach(l => { l.progress = lerp(l.progress, eased, 0.08); });
+        const lp = lasers[0].progress;
+
+        ctx.save();
+        ctx.globalCompositeOperation = "lighter";
+
+        const laserData = [
+          { sx: 0, sy: cy, ex: cx, ey: cy, color: "0, 220, 255" },   // left
+          { sx: W, sy: cy, ex: cx, ey: cy, color: "160, 80, 255" },  // right
+          { sx: cx, sy: 0, ex: cx, ey: cy, color: "0, 200, 255" },   // top
+          { sx: cx, sy: H, ex: cx, ey: cy, color: "180, 60, 255" },  // bottom
+        ];
+
+        laserData.forEach(({ sx, sy, ex, ey, color }) => {
+          const px = lerp(sx, ex, lp);
+          const py = lerp(sy, ey, lp);
+          const grad = ctx.createLinearGradient(sx, sy, px, py);
+          
+          grad.addColorStop(0, `rgba(${color}, 0)`);
+          grad.addColorStop(0.7, `rgba(${color}, 0.15)`);
+          grad.addColorStop(1, `rgba(${color}, 0.9)`);
+
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = 1.5;
+          ctx.shadowColor = `rgba(${color}, 0.8)`;
+          ctx.shadowBlur = 10;
+          ctx.beginPath();
+          ctx.moveTo(sx, sy);
+          ctx.lineTo(px, py);
+          ctx.stroke();
+
+          // Glowing tip of the laser
+          if (lp > 0.1) {
+            ctx.fillStyle = `rgba(${color}, ${0.6 + Math.sin(time * 8) * 0.3})`;
+            ctx.shadowBlur = 15;
+            ctx.beginPath();
+            ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        });
+
+        // Retract at the very end
+        if (phase >= 5) {
+          lasers.forEach(l => { l.progress = lerp(l.progress, 0, 0.04); });
+        }
+        ctx.restore();
+      }
+
+      // Phase 2: The "Star" Circuit Lines 
+      if (phase >= 2) {
+        const circuitProg = clamp((progress - 0.15) / 0.35, 0, 1);
+        ctx.save();
+        ctx.globalCompositeOperation = "lighter";
+
+        const branches = 12;
+        for (let i = 0; i < branches; i++) {
+          const angle = (Math.PI * 2 * i) / branches + Math.PI / 6;
+          const len = Math.min(W, H) * 0.4 * circuitProg; // Line length
+          const segments = 3;
+          let px = cx, py = cy;
+
+          ctx.strokeStyle = `rgba(0, 200, 255, ${0.2 + circuitProg * 0.3})`;
+          ctx.lineWidth = 1.2;
+          ctx.shadowColor = "rgba(0, 220, 255, 0.5)";
+          ctx.shadowBlur = 8;
+          ctx.beginPath();
+          ctx.moveTo(cx, cy);
+
+          for (let s = 0; s < segments; s++) {
+            const segLen = len / segments;
+            const turn = s % 2 === 0 ? 0 : (i % 2 === 0 ? Math.PI / 2 : -Math.PI / 2);
+            const a = angle + turn * 0.35; // The sharp angle turns
+            px += Math.cos(a) * segLen;
+            py += Math.sin(a) * segLen;
+            ctx.lineTo(px, py);
+          }
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+
+      // Phase 3: Activating Nodes (The little dots on the lines)
+      if (phase >= 2) {
+        const nodeProg = clamp((progress - 0.25) / 0.35, 0, 1);
+        ctx.save();
+        ctx.globalCompositeOperation = "lighter";
+
+        nodes.forEach((node, i) => {
+          const activateAt = i / nodes.length;
+          if (nodeProg > activateAt) {
+            node.on = lerp(node.on, 1, 0.05);
+            const flicker = Math.sin(time * 10 + node.flicker) * 0.15 + 0.85;
+            const alpha = node.on * flicker * 0.7;
+
+            ctx.fillStyle = `rgba(0, 220, 255, ${alpha})`;
+            ctx.shadowColor = "rgba(0, 220, 255, 0.8)";
+            ctx.shadowBlur = 10 * node.on;
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, 2 * node.on, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        });
+        ctx.restore();
+      }
+
+      // Phase 4: Wavy Background Lines
+      if (phase >= 3) {
+        const waveProg = clamp((progress - 0.35) / 0.3, 0, 1);
+        ctx.save();
+        ctx.globalCompositeOperation = "lighter";
+
+        [0, 1, 2].forEach((layer) => {
+          const yOff = cy + (layer - 1) * 30;
+          const alpha = waveProg * (0.08 - layer * 0.02);
+          const freq = 0.006 + layer * 0.002;
+          const amp = 40 + layer * 15;
+          const speed = time * (1.2 - layer * 0.2);
+
+          ctx.strokeStyle = layer === 0 
+            ? `rgba(0, 220, 255, ${alpha})` 
+            : `rgba(160, 80, 255, ${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+
+          for (let x = 0; x <= W; x += 5) {
+            const y = yOff + Math.sin(x * freq + speed) * amp * waveProg;
+            x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+        });
+        ctx.restore();
+      }
+
+      time += 0.016;
+      requestAnimationFrame(render);
+    }
+
+    /* ─── Animation Timeline Logic ─── */
+    const duration = 4500; // Total loading time in ms
+    let startTime = null;
+    let isComplete = false;
+    let isTitleShown = false;
+
+    const domTextContainer = document.getElementById("text-container");
+    const domProgressFill = document.getElementById("progress-fill");
+    const domProgressText = document.getElementById("progress-text");
+    const domLoaderWrapper = document.getElementById("loader-wrapper");
+    const domAppContent = document.getElementById("app-content");
+
+    function animateTimeline(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const p = clamp(elapsed / duration, 0, 1);
+      
+      // Smooth easing curve
+      progress = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+
+      // Update structural phases
+      if (p > 0.05) phase = Math.max(phase, 1); // Lasers start
+      if (p > 0.20) phase = Math.max(phase, 2); // Circuit star bursts
+      if (p > 0.40) phase = Math.max(phase, 3); // Background waves
+      if (p > 0.60) phase = Math.max(phase, 4); // Text triggers
+      if (p > 0.88) phase = Math.max(phase, 5); // Exit sequence
+
+      // Update DOM UI
+      const percentInt = Math.round(progress * 100);
+      domProgressFill.style.width = `${percentInt}%`;
+      domProgressText.innerText = `${percentInt}%`;
+
+      // Trigger Text Appearance
+      if (phase >= 4 && !isTitleShown) {
+        domTextContainer.classList.add("show");
+        isTitleShown = true;
+      }
+
+      // Completion Sequence
+      if (p >= 1 && !isComplete) {
+        isComplete = true;
+        setTimeout(() => {
+          // Fade to main content
+          domLoaderWrapper.style.opacity = '0';
+          setTimeout(() => {
+            domLoaderWrapper.style.display = 'none';
+            domAppContent.style.display = 'block';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+            requestAnimationFrame(() => {
+              domAppContent.style.opacity = '1';
+            });
+          }, 800);
+        }, 500);
+        return;
+      }
+      
+      if (!isComplete) {
+        requestAnimationFrame(animateTimeline);
+      }
+    }
+
+    // Start everything
+    requestAnimationFrame(render);
+    requestAnimationFrame(animateTimeline);
+  </script>
+</body>
+</html>

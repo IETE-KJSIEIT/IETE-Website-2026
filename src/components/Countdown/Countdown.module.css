@@ -1,6 +1,6 @@
 .section {
     background: var(--bg-1);
-    padding: 5rem 2rem;
+    padding: 2.5rem 2rem;
     position: relative;
     z-index: 1;
     overflow: hidden;

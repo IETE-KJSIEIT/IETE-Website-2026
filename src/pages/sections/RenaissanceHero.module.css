@@ -1,6 +1,6 @@
 .section {
     position: relative;
-    padding: 6rem 2rem 3rem;
+    padding: 8rem 2rem 5rem;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -171,4 +171,51 @@
     border: 1px solid rgba(0, 200, 255, 0.2);
     border-radius: 8px;
     padding: 0.5rem 1rem;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 5rem 1.2rem 3rem;
+        overflow: hidden;
+    }
+
+    .inner {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .title {
+        font-size: clamp(1.8rem, 9vw, 3.2rem);
+    }
+
+    .year {
+        font-size: clamp(1rem, 4.5vw, 1.6rem);
+    }
+
+    .tagline {
+        font-size: clamp(0.85rem, 3.2vw, 1.1rem);
+    }
+
+    .desc {
+        font-size: 0.85rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .meta {
+        gap: 0.75rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 5rem 1rem 2.5rem;
+    }
+
+    .badge {
+        font-size: 0.62rem;
+        letter-spacing: 0.2em;
+        padding: 0.35rem 0.85rem;
+    }
 }

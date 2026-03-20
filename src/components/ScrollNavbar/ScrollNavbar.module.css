@@ -81,7 +81,7 @@
 }
 
 .logoHighlight {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 1.25rem;
     font-weight: 900;
     color: var(--primary);
@@ -90,7 +90,7 @@
 }
 
 .logoText {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 1.25rem;
     font-weight: 300;
     color: #ffffff;
@@ -107,7 +107,7 @@
 
 .navLink {
     text-decoration: none;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.15em;
@@ -196,7 +196,7 @@
 }
 
 .contactText {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -231,8 +231,180 @@
         display: none;
     }
 
-    /* Hide heavy menu on mobile, or use hamburger later */
     .contactWrapper {
         display: none;
+    }
+}
+
+/* ── Hamburger (mobile only) ── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1100;
+    position: relative;
+}
+
+.hamburger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: transform 0.35s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.25s ease;
+}
+
+.hamburgerOpen span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburgerOpen span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburgerOpen span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Backdrop */
+.mobileBackdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 990;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.backdropOpen {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Slide-in panel */
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(85vw, 320px);
+    height: 100dvh;
+    z-index: 1000;
+    background: rgba(6, 8, 18, 0.98);
+    border-left: 1px solid rgba(0, 200, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.mobileMenuOpen {
+    right: 0;
+}
+
+.mobileMenuHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 200, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.mobileMenuLogo {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.15em;
+    text-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
+    text-decoration: none;
+}
+
+.mobileMenuClose {
+    all: unset;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.mobileMenuClose:hover {
+    background: rgba(255, 60, 60, 0.15);
+    border-color: rgba(255, 60, 60, 0.4);
+    color: #fff;
+}
+
+.mobileLinks {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.mobileLink {
+    font-family: var(--font-sub);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 1rem 1.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: color 0.25s ease, background 0.25s ease, padding-left 0.25s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.mobileLink:hover,
+.mobileLinkActive {
+    color: var(--primary);
+    background: rgba(0, 200, 255, 0.05);
+    padding-left: 2.2rem;
+}
+
+.mobileLinkArrow {
+    margin-left: auto;
+    color: rgba(0, 200, 255, 0.35);
+    font-size: 0.8rem;
+}
+
+.mobileMenuFooter {
+    padding: 1.2rem 1.8rem;
+    border-top: 1px solid rgba(0, 200, 255, 0.08);
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    color: rgba(0, 200, 255, 0.2);
+    letter-spacing: 0.2em;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .mobileBackdrop {
+        display: block;
     }
 }

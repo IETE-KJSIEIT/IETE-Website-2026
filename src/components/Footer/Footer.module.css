@@ -89,6 +89,10 @@
     padding: 10px;
 }
 
+.logoImgRound {
+    border-radius: 50%;
+}
+
 .logoFallback {
     position: absolute;
     font-family: 'Courier New', Courier, monospace;

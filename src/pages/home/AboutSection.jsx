@@ -183,12 +183,6 @@ export default function AboutSection({ onToggleOff }) {
                         ))}
 
                         {/* Placeholder icon */}
-                        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.35 }}>
-                            <rect x="2" y="2" width="52" height="52" rx="6" stroke="rgba(0,191,255,0.8)" strokeWidth="1.5" strokeDasharray="6 4" />
-                            <circle cx="21" cy="22" r="7" stroke="rgba(0,191,255,0.8)" strokeWidth="1.5" />
-                            <path d="M2 42 L16 30 L26 40 L36 28 L54 44" stroke="rgba(0,191,255,0.8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-
                         <span style={{ fontSize: '0.65rem', letterSpacing: '0.28em', color: 'rgba(0,191,255,0.45)', fontFamily: 'monospace' }}>
                             IMAGE.SLOT / READY
                         </span>
