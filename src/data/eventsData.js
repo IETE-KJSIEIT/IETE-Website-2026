@@ -14,7 +14,7 @@ export const techEvents = [
         title: 'Tech Escape Room',
         tagline: 'Unlock the Code',
         description: 'Solve technical puzzles and crack codes to escape the room. Team size: 3 members. Entry: ₹100.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/RSvT9D6BaabeYpt16',
         color: 'cyan',
     },
     {
@@ -23,7 +23,7 @@ export const techEvents = [
         title: 'Debug Dash',
         tagline: 'Fix and Forward',
         description: 'Find and fix bugs in messy codebases as fast as possible! Entry: ₹30 per person.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/4oaGKk681kPKhnBW9',
         color: 'cyan',
     },
     {
@@ -32,7 +32,7 @@ export const techEvents = [
         title: 'Pixel Perfect',
         tagline: 'UI/UX Showdown',
         description: 'Match the target design using HTML/CSS perfectly within the time limit. Entry: ₹30 per person.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/W7qXo2oZRkDGdbh86',
         color: 'cyan',
     },
     {
@@ -41,7 +41,7 @@ export const techEvents = [
         title: 'Tech CTF',
         tagline: 'Capture The Flag',
         description: 'Cybersecurity challenge! Find vulnerabilities and capture the flags. Entry: ₹50 per person.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/a4jBc9JtjdDwTYFz6',
         color: 'cyan',
     },
 ];
@@ -53,7 +53,7 @@ export const nonTechEvents = [
         title: 'IPL Auction',
         tagline: 'Build Your Dream Team',
         description: 'Step into the shoes of a franchise owner! Strategize and bid to assemble your dream team. Team size: 4 members. Entry: ₹200.',
-        registerUrl: 'https://forms.gle/QgfYXgzEkVjNoU3L9',
+        registerUrl: 'https://forms.gle/kFfx9LcxcxawaWK27',
         color: 'purple',
     },
     {
@@ -62,7 +62,7 @@ export const nonTechEvents = [
         title: 'FIFA',
         tagline: 'Esports Tournament',
         description: 'Players battle head-to-head in FIFA showcasing reflexes, tactics, and focus. Entry: ₹50 per person.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/4EoyBsWs8jN78rVr9',
         color: 'purple',
     },
     {
@@ -71,7 +71,7 @@ export const nonTechEvents = [
         title: 'Campus Fued',
         tagline: 'Survey Says...',
         description: 'Compete in a classic game show format tailored to our college life. Team size: 2 members. Entry: ₹100.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/kqwf9tfZn5FgL2NB7',
         color: 'purple',
     },
     {
@@ -80,7 +80,7 @@ export const nonTechEvents = [
         title: 'Startup Saga',
         tagline: 'Pitch Your Vision',
         description: 'Present your best business ideas and see if you have what it takes to be the next unicorn. Entry: ₹50 per person.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/o9pyth2eDzCZPK6u8',
         color: 'purple',
     },
 ];

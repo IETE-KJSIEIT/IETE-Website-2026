@@ -7,11 +7,14 @@ import ScrollNavbar from '../components/ScrollNavbar/ScrollNavbar';
 import Footer from '../components/Footer/Footer';
 import styles from './IETEHomePage.module.css';
 
+let initialLoadComplete = false;
+
 export default function IETEHomePage() {
-    const [loaded, setLoaded] = useState(() => sessionStorage.getItem('seenLoader') === '1');
+    const [loaded, setLoaded] = useState(initialLoadComplete);
+    
     const handleDone = useCallback(() => {
+        initialLoadComplete = true;
         setLoaded(true);
-        sessionStorage.setItem('seenLoader', '1');
     }, []);
 
     // scrollProgress: 0 = top, 1 = when About section top hits viewport
