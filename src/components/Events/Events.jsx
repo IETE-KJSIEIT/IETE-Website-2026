@@ -109,7 +109,7 @@ function EventNode({ eventId, onOpen, isTech }) {
             >
                 <span className={styles.outerRing} />
                 <span className={styles.innerGlow} />
-                <span className={styles.nodeEmoji}>{data.emoji}</span>
+                <img src={data.logo} alt={data.title} className={styles.nodeEmoji} style={{ width: '50px', height: '50px', objectFit: 'contain', zIndex: 2 }} />
             </button>
             <span className={styles.nodeLabel}>{data.title}</span>
         </div>

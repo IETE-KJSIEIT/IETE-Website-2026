@@ -19,7 +19,7 @@ export default function PhotoGallery() {
                         >
                             <div
                                 className={styles.imgPlaceholder}
-                                style={{ background: img.gradient }}
+                                style={{ backgroundImage: `url(${img.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                             >
                                 <div className={styles.overlay}>
                                     <span className={styles.overlayText}>{img.alt}</span>
@@ -30,10 +30,6 @@ export default function PhotoGallery() {
                         </div>
                     ))}
                 </div>
-
-                <p className={styles.photoNote}>
-                    📸 Real photos coming soon — replacing placeholders with event highlights
-                </p>
             </div>
         </section>
     );

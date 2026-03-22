@@ -8,7 +8,7 @@ function EventCard({ event }) {
             <div className={styles.cardCornerTL} />
             <div className={styles.cardCornerBR} />
             <div className={styles.cardHeader}>
-                <span className={styles.emoji}>{event.emoji}</span>
+                <img src={event.logo} alt={event.title} className={styles.emoji} style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
             </div>
             <span className={styles.tagline}>{event.tagline}</span>
             <h3 className={styles.title}>{event.title}</h3>

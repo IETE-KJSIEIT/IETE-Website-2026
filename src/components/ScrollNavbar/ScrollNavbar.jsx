@@ -82,7 +82,7 @@ export default function ScrollNavbar({ scrollProgress }) {
     return (
         <header
             className={styles.navbarContainer}
-            style={{ pointerEvents: scrollProgress > 0.4 ? 'auto' : 'none' }}
+            style={{ pointerEvents: scrollProgress > 0.4 || menuOpen ? 'auto' : 'none' }}
         >
             <ScatterBox progress={scrollProgress} staggerBase={0} className={styles.navBg} seed="bg" />
             <ScatterBox progress={scrollProgress} staggerBase={0.05} className={styles.navBorder} seed="border" />

@@ -38,7 +38,7 @@ export default function EventModal({ event, isTech, onClose }) {
 
                     <div className={styles.headerLayout}>
                         <div className={styles.iconBox}>
-                            <span className={styles.emoji}>{event.emoji}</span>
+                            <img src={event.logo} alt={event.title} className={styles.emoji} style={{ width: '80%', height: '80%', objectFit: 'contain' }} />
                         </div>
                         <div className={styles.titleBox}>
                             <span className={styles.badge}>// {isTech ? 'TECH_OP' : 'NON_TECH_OP'}</span>

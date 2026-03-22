@@ -6,7 +6,7 @@ export default function Footer() {
         window.scrollTo(0, 0);
     };
     return (
-        <footer className={styles.footer}>
+        <footer id="contact" className={styles.footer}>
 
 
             {/* Main columns */}
@@ -33,11 +33,11 @@ export default function Footer() {
                 {/* Logos */}
                 <div className={styles.logos}>
                     <div className={styles.logoBubble}>
-                        <img src="/logos/iete-logo.png" alt="IETE" className={`${styles.logoImg} ${styles.logoImgRound}`} onError={e => e.target.style.display = 'none'} />
+                        <img src="/logos/iete-logo.webp" alt="IETE" className={`${styles.logoImg} ${styles.logoImgRound}`} onError={e => e.target.style.display = 'none'} />
 
                     </div>
                     <div className={styles.logoBubble}>
-                        <img src="/logos/kjsit-logo.png" alt="KJSIT" className={styles.logoImg} onError={e => e.target.style.display = 'none'} />
+                        <img src="/logos/kjsit-logo.webp" alt="KJSIT" className={styles.logoImg} onError={e => e.target.style.display = 'none'} />
 
                     </div>
                 </div>

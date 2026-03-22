@@ -78,8 +78,8 @@ export default function AwardsSection() {
                     }}
                 >
                     <img
-                        src="/awards-photo.png"
-                        alt="IETE KJSIT — 3rd Best ISF in Mumbai · Oscillations 2025"
+                        src="/awards-photo.webp"
+                        alt="IETE KJSIT — 3rd Best IETE ISF in Mumbai · Oscillations 2025"
                         style={{
                             width: '100%',
                             height: 'auto',
@@ -121,7 +121,7 @@ export default function AwardsSection() {
                         letterSpacing: '0.05em',
                     }}
                 >
-                    3RD BEST ISF IN MUMBAI
+                    3RD BEST IETE ISF IN MUMBAI
                 </h2>
 
                 {/* ── Description ── */}

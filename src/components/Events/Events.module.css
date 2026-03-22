@@ -344,11 +344,12 @@
 /* Node label */
 .nodeLabel {
     font-family: var(--font-sub);
-    font-size: 0.72rem;
+    font-size: 0.85rem;
+    font-weight: 700;
     letter-spacing: 0.05em;
-    color: var(--text-muted);
+    color: var(--text-regular);
     text-align: center;
-    max-width: 100px;
+    max-width: 120px;
     line-height: 1.3;
 }
 
@@ -399,7 +400,8 @@
     }
 
     .nodeLabel {
-        font-size: 0.62rem;
-        max-width: 72px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        max-width: 90px;
     }
 }

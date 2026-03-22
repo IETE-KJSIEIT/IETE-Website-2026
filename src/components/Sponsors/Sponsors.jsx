@@ -6,9 +6,17 @@ import styles from './Sponsors.module.css';
  * Renders a single sponsor card
  * Supports either a `logo` image URL or fallback `initials` with a `gradient`
  */
-function SponsorCard({ initials, name, type, gradient, logo, size = 'normal' }) {
+function SponsorCard({ initials, name, type, gradient, logo, websiteUrl, size = 'normal' }) {
+    const CardWrapper = websiteUrl && websiteUrl !== '#' ? 'a' : 'div';
+    const wrapperProps = CardWrapper === 'a' ? {
+        href: websiteUrl,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        style: { textDecoration: 'none', color: 'inherit', display: 'block' }
+    } : {};
+
     return (
-        <div className={`${styles.card} ${size === 'large' ? styles.cardLarge : ''}`}>
+        <CardWrapper className={`${styles.card} ${size === 'large' ? styles.cardLarge : ''}`} {...wrapperProps}>
             <div className={styles.logoCircle} style={{ background: logo ? 'transparent' : gradient }}>
                 {logo ? (
                     <img src={logo} alt={`${name} logo`} className={styles.logoImage} />
@@ -20,7 +28,7 @@ function SponsorCard({ initials, name, type, gradient, logo, size = 'normal' }) 
                 <h3 className={styles.name}>{name}</h3>
                 <p className={styles.type}>{type}</p>
             </div>
-        </div>
+        </CardWrapper>
     );
 }
 

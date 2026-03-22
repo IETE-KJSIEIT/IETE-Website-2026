@@ -54,7 +54,7 @@ const TEAM_DATA = {
             { role: 'CTO', title: 'Chief Technical Officer', name: 'Sujal Chalke', photo: '/team/core/cto.webp', linkedin: 'https://www.linkedin.com/in/cluelesssujal/', email: 'sujal.chalke@somaiya.edu' },
             { role: 'CMO', title: 'Chief Marketing Officer', name: 'Krish Chambaria', photo: '/team/core/cmo.webp', linkedin: 'https://www.linkedin.com/in/krish-chambaria-271b92315/', email: 'krish.chambaria@somaiya.edu' },
             { role: 'PRO', title: 'Public Relations Officer', name: 'Darsh Kothari', photo: '/team/core/pro.webp', linkedin: ' https://www.linkedin.com/in/darsh-kothari-70919a264', email: 'darsh.kothari@somaiya.edu' },
-            { role: 'DMM', title: 'Digital Marketing Manager', name: 'Arnav Deshpande', photo: '/team/core/dmm.webp', linkedin: 'https://www.linkedin.com/in/arnav-deshpande-4988023b8/', email: 'arnav.deshpande@somaiya.edu' },
+            { role: 'DMM', title: 'Digital Media Manager', name: 'Arnav Deshpande', photo: '/team/core/dmm.webp', linkedin: 'https://www.linkedin.com/in/arnav-deshpande-4988023b8/', email: 'arnav.deshpande@somaiya.edu' },
             { role: 'Trs', title: 'Treasurer', name: 'Neel Shah', photo: '/team/core/tr.webp', linkedin: '', email: '' },
         ],
     },
@@ -74,7 +74,7 @@ const TEAM_DATA = {
             { role: 'SML', title: 'Public Relations Admin', name: 'Zeal Dhami', photo: '/team/subcore/pr-admin.webp', linkedin: '', email: 'zeal.dhami@somaiya.edu' },
             { role: 'EVL', title: 'Social Media Manager', name: 'Pratik Narvadkar', photo: '/team/subcore/smm.webp', linkedin: '', email: 'pratik.narvadkar@somaiya.edu' },
             { role: 'ORL', title: 'Creative Admin', name: 'Eshant Palkar', photo: '/team/subcore/orl.webp', linkedin: '', email: 'eshant.p@somaiya.edu' },
-            { role: 'DOCL', title: 'Organising Admin', name: 'Bhavy Doshi', photo: '/team/subcore/org-head.png', linkedin: 'https://www.linkedin.com/in/bhavy-doshi-735b20341/', email: 'bhavy.d@somaiya.edu' },
+            { role: 'DOCL', title: 'Organising Admin', name: 'Bhavy Doshi', photo: '/team/subcore/org-head.webp', linkedin: 'https://www.linkedin.com/in/bhavy-doshi-735b20341/', email: 'bhavy.d@somaiya.edu' },
         ],
     },
 
@@ -87,7 +87,7 @@ const TEAM_DATA = {
         banner: 'TECHNICAL',
         photo: '/team/domains/tech.webp',
         heads: [
-            { role: 'TL', title: 'Technical Lead' },
+            { role: 'TL', title: 'Technical Lead', name: 'Khush Mehta', email: 'khush.mm@somaiya.edu', photo: '/team/domains/khush.webp' },
         ],
     },
     creative: {
@@ -98,7 +98,7 @@ const TEAM_DATA = {
         banner: 'CREATIVE',
         photo: '/team/domains/creative.webp',
         heads: [
-            { role: 'CL', title: 'Creative Lead' },
+            { role: 'CL', title: 'Creative Lead', name: 'Shalmali Jadhav', email: 'shalmali.j@somaiya.edu', photo: '/team/domains/shalmali.webp' },
         ],
     },
     pr: {
@@ -109,7 +109,7 @@ const TEAM_DATA = {
         banner: 'PR',
         photo: '/team/domains/pr.webp',
         heads: [
-            { role: 'PL', title: 'PR Lead' },
+            { role: 'PL', title: 'PR Lead', name: 'Manav Damani', email: 'manav.damani@somaiya.edu', photo: '/team/domains/manav.webp' },
         ],
     },
     marketing: {
@@ -120,7 +120,7 @@ const TEAM_DATA = {
         banner: 'MARKETING',
         photo: '/team/domains/marketing.webp',
         heads: [
-            { role: 'CMO', title: 'Chief Marketing Officer' },
+            { role: 'ML', title: 'Marketing Lead', name: 'Veera Allak', email: 'veera.allak@somaiya.edu', photo: '/team/domains/veera.webp' },
         ],
     },
     organizing: {
@@ -131,8 +131,8 @@ const TEAM_DATA = {
         banner: 'ORGANIZING',
         photo: '/team/domains/org.webp',
         heads: [
-            { role: 'OL', title: 'Organizing Lead' },
-            { role: 'EM', title: 'Event Manager' },
+            { role: 'OL', title: 'Organizing Lead', name: 'Rishabh Shaw', email: 'rishabh.shaw@somaiya.edu', photo: '/team/domains/rishabh.webp' },
+            { role: 'EM', title: 'Event Manager', name: 'Aditi Hasurkar', email: 'aditi.hasurkar@somaiya.edu', photo: '/team/domains/aditi.webp' },
         ],
     },
 };
@@ -189,7 +189,7 @@ export default function AboutIETE() {
                                     tomorrow. This is our digital hub.
                                 </p>
                                 <div className={styles.statRow}>
-                                    {[['400+', 'Members'], ['50+', 'Workshops'], ['8', 'Flagship Events']].map(([num, label]) => (
+                                    {[['100+', 'Members'], ['7+', 'Workshops'], ['15+', 'Flagship Events']].map(([num, label]) => (
                                         <div key={label} className={styles.statItem}>
                                             <span className={styles.statNum}>{num}</span>
                                             <span className={styles.statLabel}>{label}</span>
@@ -202,7 +202,7 @@ export default function AboutIETE() {
                             </div>
                             <div className={`${styles.aboutImgCol} ${aboutInView ? styles.slideInRight : ''}`}>
                                 <img
-                                    src="/team/family.png"
+                                    src="/team/family.webp"
                                     alt="IETE KJSIT Family"
                                     className={styles.familyImg}
                                 />
@@ -221,7 +221,7 @@ export default function AboutIETE() {
                         <div className={styles.awardPhotoSide}>
                             <div className={styles.awardPhotoFrame}>
                                 <img
-                                    src="/team/award.png"
+                                    src="/team/award.webp"
                                     alt="IETE KJSIT Award Ceremony"
                                     className={styles.awardPhotoImg}
                                 />
@@ -230,7 +230,7 @@ export default function AboutIETE() {
                             {/* Corner badge */}
                             <div className={styles.awardBadge}>
                                 <span className={styles.awardBadgeNum}>3rd</span>
-                                <span className={styles.awardBadgeLabel}>Best ISF</span>
+                                <span className={styles.awardBadgeLabel}>Best IETE ISF</span>
                             </div>
                         </div>
 
@@ -244,7 +244,7 @@ export default function AboutIETE() {
                             <span className={styles.awardTrophy}>🏆</span>
 
                             <h2 className={styles.awardHeading}>
-                                3<span className={styles.awardHeadingAccent}>RD</span> BEST ISF<br />
+                                3<span className={styles.awardHeadingAccent}>RD</span> BEST IETE ISF<br />
                                 <span className={styles.awardHeadingAccent}>IN MUMBAI</span>
                             </h2>
 
@@ -392,12 +392,30 @@ export default function AboutIETE() {
                                                     style={{ '--team-accent': team.accent, '--delay': `${i * 0.12}s` }}
                                                 >
                                                     <div className={styles.headAvatarWrap}>
-                                                        <div className={styles.headAvatar} style={{ borderColor: team.accent }}></div>
+                                                        {head.photo ? (
+                                                            <img
+                                                                src={head.photo}
+                                                                alt={head.role}
+                                                                className={styles.headAvatarImg}
+                                                                style={{ borderColor: team.accent }}
+                                                                onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextSibling.style.display = 'flex'; }}
+                                                            />
+                                                        ) : null}
+                                                        <div className={styles.headAvatar} style={{ borderColor: team.accent, display: head.photo ? 'none' : 'flex' }}></div>
                                                     </div>
                                                     <div className={styles.headInfo}>
                                                         <span className={styles.headRole}>{head.name || 'Name Here'}</span>
                                                         <span className={styles.headTitle} style={{ fontWeight: 'bold' }}>{head.title}</span>
                                                     </div>
+                                                    {head.email && (
+                                                        <a
+                                                            href={`mailto:${head.email}`}
+                                                            className={styles.headEmailIcon}
+                                                            title="Email"
+                                                        >
+                                                            ✉
+                                                        </a>
+                                                    )}
                                                 </div>
                                             ))}
                                         </div>

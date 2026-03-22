@@ -85,7 +85,7 @@ export default function Footer() {
                             {/* Logo 1 */}
                             <div className="w-24 h-24 rounded-full border-2 border-[rgba(0,191,255,0.4)] bg-[rgba(0,191,255,0.06)] flex items-center justify-center overflow-hidden transition-all duration-300 shadow-[0_0_15px_rgba(0,191,255,0.2)] hover:shadow-[0_0_25px_rgba(0,191,255,0.6)] hover:border-[rgba(0,191,255,0.8)]">
                                 <img
-                                    src="/iete-logo.png"
+                                    src="/iete-logo.webp"
                                     alt="IETE Logo"
                                     className="w-3/4 h-3/4 object-contain brightness-110"
                                     onError={(e) => {
@@ -99,7 +99,7 @@ export default function Footer() {
                             {/* Logo 2 */}
                             <div className="w-24 h-24 rounded-full border-2 border-[rgba(0,191,255,0.4)] bg-[rgba(0,191,255,0.06)] flex items-center justify-center overflow-hidden transition-all duration-300 shadow-[0_0_15px_rgba(0,191,255,0.2)] hover:shadow-[0_0_25px_rgba(0,191,255,0.6)] hover:border-[rgba(0,191,255,0.8)]">
                                 <img
-                                    src="/somaiya-logo.png"
+                                    src="/somaiya-logo.webp"
                                     alt="Somaiya Logo"
                                     className="w-3/4 h-3/4 object-contain brightness-110"
                                     onError={(e) => {

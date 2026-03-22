@@ -27,9 +27,9 @@ function RotatingTag() {
 
 const STATS = [
     { value: '8+', label: 'Events' },
-    { value: '500+', label: 'Participants' },
+    { value: '300+', label: 'Participants' },
     { value: '3', label: 'Days' },
-    { value: '₹100K+', label: 'Prizes' },
+    { value: '₹50K+', label: 'Prizes' },
 ];
 
 export default function Hero() {
@@ -63,7 +63,7 @@ export default function Hero() {
 
                     <div className={styles.ctas}>
                         <a href="#events" className="btn btn-primary">EXPLORE EVENTS</a>
-                        <a href="#about" className={styles.btnOutline}>LEARN MORE</a>
+
                     </div>
                 </div>
 

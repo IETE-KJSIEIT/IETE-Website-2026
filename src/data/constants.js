@@ -1,111 +1,110 @@
 // Event data for modals
 export const EVENTS = {
-    'digital-sherlock': {
-        title: 'Digital Sherlock',
-        emoji: '🔍',
+    'tech-escape-room': {
+        title: 'Tech Escape Room',
+        logo: '/logos/iete-logo.webp',
         type: 'tech',
-        description:
-            'Put your deductive skills to the test! Analyze clues, solve puzzles, and think critically to crack complex digital mysteries. A battle of logic, pattern recognition, and analytical thinking.',
+        description: 'Solve technical puzzles and crack codes to escape the room. Team size: 3 members. Entry: ₹100.',
         registerUrl: '#',
     },
-    'prompt-showdown': {
-        title: 'Prompt Showdown',
-        emoji: '🤖',
+    'debug-dash': {
+        title: 'Debug Dash',
+        logo: '/logos/iete-logo.webp',
         type: 'tech',
-        description:
-            'Compete in the art of AI prompting! Craft the most creative and effective prompts to generate outputs that meet the challenge criteria. Creativity meets technology in this exciting battle of human-AI collaboration.',
+        description: 'Find and fix bugs in messy codebases as fast as possible! Entry: ₹30 per person.',
         registerUrl: '#',
     },
-    'code-golf': {
-        title: 'Code Golf',
-        emoji: '⛳',
+    'pixel-perfect': {
+        title: 'Pixel Perfect',
+        logo: '/logos/iete-logo.webp',
         type: 'tech',
-        description:
-            'Write the shortest possible code to solve given problems. Every character counts! Compete against other programmers to produce the most elegant and compact solution across multiple programming languages.',
+        description: 'Match the target design using HTML/CSS perfectly within the time limit. Entry: ₹30 per person.',
         registerUrl: '#',
     },
-    'coming-soon': {
-        title: '🔒 Coming Soon',
-        emoji: '🔒',
+    'tech-ctf': {
+        title: 'Tech CTF',
+        logo: '/logos/iete-logo.webp',
         type: 'tech',
-        locked: true,
-        description:
-            'A brand new technical event is on its way! Stay tuned for the reveal — something exciting is coming that will challenge your technical skills in a whole new way.',
+        description: 'Cybersecurity challenge! Find vulnerabilities and capture the flags. Entry: ₹50 per person.',
         registerUrl: '#',
     },
-    ipl: {
-        title: 'IPL Fantasy',
-        emoji: '🏏',
+    'ipl-auction': {
+        title: 'IPL Auction',
+        logo: '/logos/iete-logo.webp',
         type: 'nontech',
-        description:
-            'Build your dream cricket team and compete for points as real IPL matches unfold! Strategic team selection and cricket knowledge will lead you to victory in this fan-favourite competition.',
+        description: 'Step into the shoes of a franchise owner! Strategize and bid to assemble your dream team in this thrilling cricket auction simulation. Team size: 4 members. Entry: ₹200.',
+        registerUrl: 'https://forms.gle/QgfYXgzEkVjNoU3L9',
+    },
+    'fifa': {
+        title: 'FIFA',
+        logo: '/logos/iete-logo.webp',
+        type: 'nontech',
+        description: 'Players battle head-to-head in FIFA, showcasing reflexes, tactics, and focus. Entry: ₹50 per person.',
         registerUrl: '#',
     },
-    'alice-borderland': {
-        title: 'Alice in Borderland',
-        emoji: '🃏',
+    'campus-fued': {
+        title: 'Campus Fued',
+        logo: '/logos/iete-logo.webp',
         type: 'nontech',
-        description:
-            'Step into the world of Alice in Borderland — a series of mind-bending physical and mental games inspired by the hit Netflix series. Only the smart and the brave will survive each round!',
+        description: 'Compete in a classic game show format tailored to our college life. Team size: 2 members. Entry: ₹100.',
         registerUrl: '#',
     },
-    'fifa-f1': {
-        title: 'FIFA & F1 on PS5',
-        emoji: '🎮',
+    'startup-saga': {
+        title: 'Startup Saga',
+        logo: '/logos/iete-logo.webp',
         type: 'nontech',
-        description:
-            "Battle it out on the virtual pitch and racing circuit! Compete in FIFA and F1 tournaments on PlayStation 5. Prove you're the ultimate gaming champion in these high-octane competitive gaming events.",
-        registerUrl: '#',
-    },
-    'social-buzz': {
-        title: 'Social Buzz',
-        emoji: '📱',
-        type: 'nontech',
-        description:
-            'Showcase your social media creativity and marketing flair! Create engaging content, build a buzz around a given theme, and let your creativity shine in the digital arena. The most viral entry wins!',
+        description: 'Present your best business ideas and see if you have what it takes to be the next unicorn. Entry: ₹50 per person.',
         registerUrl: '#',
     },
 };
 
-export const TECH_EVENTS = ['digital-sherlock', 'prompt-showdown', 'code-golf', 'coming-soon'];
-export const NONTECH_EVENTS = ['ipl', 'alice-borderland', 'fifa-f1', 'social-buzz'];
+export const TECH_EVENTS = ['tech-escape-room', 'debug-dash', 'pixel-perfect', 'tech-ctf'];
+export const NONTECH_EVENTS = ['ipl-auction', 'fifa', 'campus-fued', 'startup-saga'];
 
 // Current Sponsors data
 export const CURRENT_SPONSORS = {
     major: [
-        { initials: 'RB', name: 'Red Bull', type: 'BEVERAGE PARTNER', gradient: 'linear-gradient(135deg,#e8174a,#ff6b9d)' },
-        { initials: 'AI', name: 'Apsara', type: 'ICE CREAM PARTNER', gradient: 'linear-gradient(135deg,#f59e0b,#fbbf24)' },
+        { initials: 'RB', name: 'RedBull', type: 'BEVERAGE PARTNER', gradient: 'linear-gradient(135deg,#e8174a,#ff6b9d)', logo: '/sponsors/RedBull - Beverage Partner.webp', websiteUrl: '#' },
+        { initials: 'AI', name: 'Apsara', type: 'ICE CREAM PARTNER', gradient: 'linear-gradient(135deg,#f59e0b,#fbbf24)', logo: '/sponsors/Apsara Ice Creams - Ice Cream Partner.webp', websiteUrl: '#' },
     ],
     tier2: [
-        { initials: 'LL', name: 'Love & Latte', type: 'CAFÉ PARTNER', gradient: 'linear-gradient(135deg,#10b981,#34d399)' },
-        { initials: 'BL', name: 'Bloovish', type: 'BEAUTY PARTNER', gradient: 'linear-gradient(135deg,#8b5cf6,#a78bfa)' },
-        { initials: 'SM', name: 'Smaaash', type: 'ENTERTAINMENT', gradient: 'linear-gradient(135deg,#06b6d4,#22d3ee)' },
+        { initials: 'LL', name: 'Love & Latte', type: 'CAFÉ PARTNER', gradient: 'linear-gradient(135deg,#10b981,#34d399)', logo: '/sponsors/Love & Latte - Cafe Partner.webp', websiteUrl: '#' },
+        { initials: 'BL', name: 'Bloovish', type: 'BEAUTY PARTNER', gradient: 'linear-gradient(135deg,#8b5cf6,#a78bfa)', logo: '/sponsors/Bloovish - Beauty Partner.webp', websiteUrl: '#' },
+        { initials: 'SM', name: 'Smaaash', type: 'ENTERTAINMENT', gradient: 'linear-gradient(135deg,#06b6d4,#22d3ee)', logo: '/sponsors/Smaaash - Entertainment Partner.webp', websiteUrl: '#' },
     ],
     tier3: [
-        { initials: 'NE', name: 'No Escape', type: 'ENTERTAINMENT', gradient: 'linear-gradient(135deg,#ef4444,#f87171)' },
-        { initials: 'RR', name: 'Rage Room', type: 'ENTERTAINMENT', gradient: 'linear-gradient(135deg,#f97316,#fb923c)' },
+        { initials: 'NE', name: 'No Escape', type: 'ENTERTAINMENT', gradient: 'linear-gradient(135deg,#ef4444,#f87171)', logo: '/sponsors/No Escape - Entertainment Partner.webp', websiteUrl: '#' },
+        { initials: 'RR', name: 'Rage Room', type: 'ENTERTAINMENT', gradient: 'linear-gradient(135deg,#f97316,#fb923c)', logo: '/sponsors/Rage Room - Entertainment Partner.webp', websiteUrl: '#' },
     ]
 };
 
 // Past Sponsors data
 export const PAST_SPONSORS = {
     sTier: [
-        { initials: 'GF', name: 'Get My Fest', type: 'MEDIA PARTNER', gradient: 'linear-gradient(135deg,#22c55e,#4ade80)' },
-        { initials: 'IO', name: 'Insightone', type: 'MEDIA PARTNER', gradient: 'linear-gradient(135deg,#06b6d4,#0ea5e9)' },
-        { initials: 'YI', name: 'Youth Inc', type: 'MEDIA PARTNER', gradient: 'linear-gradient(135deg,#a855f7,#c084fc)' },
-        { initials: 'IB', name: 'Interview B.', type: 'EDUCATION', gradient: 'linear-gradient(135deg,#3b82f6,#60a5fa)' },
+        { initials: 'RB', name: 'RedBull', type: 'BEVERAGE PARTNER', gradient: 'linear-gradient(135deg,#e8174a,#ff6b9d)', logo: '/sponsors/RedBull - Beverage Partner.webp', websiteUrl: '#' },
+        { initials: 'LL', name: 'Love & Latte', type: 'CAFÉ PARTNER', gradient: 'linear-gradient(135deg,#10b981,#34d399)', logo: '/sponsors/Love & Latte - Cafe Partner.webp', websiteUrl: '#' },
+        { initials: 'AI', name: 'Apsara', type: 'ICE CREAM PARTNER', gradient: 'linear-gradient(135deg,#f59e0b,#fbbf24)', logo: '/sponsors/Apsara Ice Creams - Ice Cream Partner.webp', websiteUrl: '#' },
+        { initials: 'SM', name: 'Smaaash', type: 'ENTERTAINMENT', gradient: 'linear-gradient(135deg,#06b6d4,#22d3ee)', logo: '/sponsors/Smaaash - Entertainment Partner.webp', websiteUrl: '#' },
+        { initials: 'BL', name: 'Bloovish', type: 'BEAUTY PARTNER', gradient: 'linear-gradient(135deg,#8b5cf6,#a78bfa)', logo: '/sponsors/Bloovish - Beauty Partner.webp', websiteUrl: '#' },
+        { initials: 'NE', name: 'No Escape', type: 'ENTERTAINMENT', gradient: 'linear-gradient(135deg,#ef4444,#f87171)', logo: '/sponsors/No Escape - Entertainment Partner.webp', websiteUrl: '#' },
+        { initials: 'RR', name: 'Rage Room', type: 'ENTERTAINMENT', gradient: 'linear-gradient(135deg,#f97316,#fb923c)', logo: '/sponsors/Rage Room - Entertainment Partner.webp', websiteUrl: '#' },
+        { initials: 'MD', name: 'McDonalds', type: 'FOOD PARTNER', gradient: 'linear-gradient(135deg,#f59e0b,#fbbf24)', logo: '/sponsors/mcdonalds.webp', websiteUrl: '#' },
     ],
     aTier: [
-        { initials: 'AT', name: 'Atencion', type: 'PARTNER', gradient: 'linear-gradient(135deg,#0891b2,#06b6d4)' },
-        { initials: 'KS', name: 'Kala Satika', type: 'PARTNER', gradient: 'linear-gradient(135deg,#78716c,#a8a29e)' },
-        { initials: 'ZK', name: 'Zouk', type: 'PARTNER', gradient: 'linear-gradient(135deg,#ec4899,#f472b6)' },
-        { initials: 'TC', name: 'The Coding', type: 'PARTNER', gradient: 'linear-gradient(135deg,#14b8a6,#2dd4bf)' },
+        { initials: 'IB', name: 'Interview B.', type: 'EDUCATION', gradient: 'linear-gradient(135deg,#3b82f6,#60a5fa)', logo: '/sponsors/interview buddy - Education Partner.webp', websiteUrl: '#' },
+        { initials: 'YI', name: 'Youth Inc', type: 'MEDIA PARTNER', gradient: 'linear-gradient(135deg,#a855f7,#c084fc)', logo: '/sponsors/Youth Inc. - Media Partner.webp', websiteUrl: '#' },
+        { initials: 'IO', name: 'Insightone', type: 'MEDIA PARTNER', gradient: 'linear-gradient(135deg,#06b6d4,#0ea5e9)', logo: '/sponsors/Insightone - Media Partner.webp', websiteUrl: '#' },
+        { initials: 'GF', name: 'Get My Fest', type: 'MEDIA PARTNER', gradient: 'linear-gradient(135deg,#22c55e,#4ade80)', logo: '/sponsors/Get My Fest - Media Partner.webp', websiteUrl: '#' },
+        { initials: 'AT', name: 'Atencion', type: 'PARTNER', gradient: 'linear-gradient(135deg,#0891b2,#06b6d4)', logo: '/sponsors/Atencion.webp', websiteUrl: '#' },
+        { initials: 'KS', name: 'Kala Satika', type: 'PARTNER', gradient: 'linear-gradient(135deg,#78716c,#a8a29e)', logo: '/sponsors/Kala Satika.webp', websiteUrl: '#' },
     ],
     bTier: [
-        { initials: 'UB', name: 'Urban Burger', type: 'FOOD PARTNER', gradient: 'linear-gradient(135deg,#f43f5e,#fb7185)' },
-        { initials: 'SC', name: 'Silly Codes', type: 'TECH PARTNER', gradient: 'linear-gradient(135deg,#6366f1,#818cf8)' },
-        { initials: 'VP', name: 'Vprint', type: 'PRINT PARTNER', gradient: 'linear-gradient(135deg,#84cc16,#a3e635)' },
-        { initials: 'GL', name: 'Glow Labs', type: 'PARTNER', gradient: 'linear-gradient(135deg,#f59e0b,#fbbf24)' },
+        { initials: 'DS', name: 'Dessert', type: 'FOOD PARTNER', gradient: 'linear-gradient(135deg,#f43f5e,#fb7185)', logo: '/sponsors/Dessert.webp', websiteUrl: '#' },
+        { initials: 'SA', name: 'Saucy Affair', type: 'FOOD PARTNER', gradient: 'linear-gradient(135deg,#f97316,#fb923c)', logo: '/sponsors/Saucy_Affair.webp', websiteUrl: '#' },
+        { initials: 'MB', name: 'Mumbai Bites', type: 'FOOD PARTNER', gradient: 'linear-gradient(135deg,#3b82f6,#60a5fa)', logo: '/sponsors/mumbai_bites.webp', websiteUrl: '#' },
+        { initials: 'MBI', name: 'Mumbai Bistro', type: 'FOOD PARTNER', gradient: 'linear-gradient(135deg,#10b981,#34d399)', logo: '/sponsors/mumbai_bistro.webp', websiteUrl: '#' },
+        { initials: 'CB', name: 'Coding Blocks', type: 'EDUCATION', gradient: 'linear-gradient(135deg,#8b5cf6,#a78bfa)', logo: '/sponsors/coding_blocks.webp', websiteUrl: '#' },
+        { initials: 'CC', name: 'Cibus Cafe', type: 'CAFÉ PARTNER', gradient: 'linear-gradient(135deg,#ef4444,#f87171)', logo: '/sponsors/cibus_cafe.webp', websiteUrl: '#' },
     ]
 };
 
