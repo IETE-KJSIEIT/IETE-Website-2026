@@ -286,6 +286,34 @@ export default function AboutIETE() {
 
                 {/* ── Viewport 3: Teams Explorer ── */}
                 <div ref={teamsRef} className={`${styles.viewportSection} ${styles.teamsViewport}`}>
+                    
+                    {/* ── Guiding Pillars (Mentors) ── */}
+                    <div className={`${styles.mentorsContainer} ${teamsInView ? styles.mentorsVisible : ''}`}>
+                        <div className={styles.mentorsHeader}>
+                            <div className={styles.mentorsLine}></div>
+                            <h3 className={styles.mentorsTitle}>GUIDING PILLARS</h3>
+                            <div className={styles.mentorsLine}></div>
+                        </div>
+                        <div className={styles.mentorsGrid}>
+                            <div className={styles.mentorCard}>
+                                <div className={styles.mentorAvatarWrap}>
+                                    <img src="/team/hod.webp" alt="Dr. Jayashree Khanapuri" className={styles.mentorAvatarImg} onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextSibling.style.display = 'flex'; }} />
+                                    <div className={styles.mentorAvatarPlaceholder} style={{ display: 'none' }}>👤</div>
+                                </div>
+                                <h4 className={styles.mentorName}>Dr. Jayashree Khanapuri</h4>
+                                <p className={styles.mentorRole}>HOD, EXTC Department</p>
+                            </div>
+                            <div className={styles.mentorCard}>
+                                <div className={styles.mentorAvatarWrap}>
+                                    <img src="/team/faculty.webp" alt="Dr. Priya Hankare" className={styles.mentorAvatarImg} onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextSibling.style.display = 'flex'; }} />
+                                    <div className={styles.mentorAvatarPlaceholder} style={{ display: 'none' }}>👤</div>
+                                </div>
+                                <h4 className={styles.mentorName}>Dr. Priya Hankare</h4>
+                                <p className={styles.mentorRole}>Faculty Coordinator</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className={`${styles.teamsExplorer} ${teamsInView ? styles.macVisible : ''}`}>
 
                         {/* macOS title bar */}
