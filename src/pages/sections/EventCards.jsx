@@ -1,5 +1,5 @@
 import styles from './EventCards.module.css';
-import { techEvents, nonTechEvents } from '../../data/eventsData';
+import { renaissanceTechEvents, renaissanceNonTechEvents } from '../../data/eventsData';
 
 function EventCard({ event }) {
     const isCyan = event.color === 'cyan';
@@ -33,7 +33,7 @@ export default function EventsSection() {
                     <span className={styles.groupLine} />
                 </div>
                 <div className={styles.grid}>
-                    {techEvents.map(ev => <EventCard key={ev.id} event={ev} />)}
+                    {renaissanceTechEvents.map(ev => <EventCard key={ev.id} event={ev} />)}
                 </div>
 
                 {/* Non-Tech Events group */}
@@ -43,7 +43,7 @@ export default function EventsSection() {
                     <span className={styles.groupLine} />
                 </div>
                 <div className={styles.grid}>
-                    {nonTechEvents.map(ev => <EventCard key={ev.id} event={ev} />)}
+                    {renaissanceNonTechEvents.map(ev => <EventCard key={ev.id} event={ev} />)}
                 </div>
             </div>
         </section>

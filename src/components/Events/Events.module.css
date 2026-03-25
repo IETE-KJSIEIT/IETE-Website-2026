@@ -132,6 +132,16 @@
     grid-row: 3;
 }
 
+.slotBottomLeft {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.slotBottomRight {
+    grid-column: 3;
+    grid-row: 3;
+}
+
 /* ==========================================
    CENTER HUB — smaller than before
    ========================================== */

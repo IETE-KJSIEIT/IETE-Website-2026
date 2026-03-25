@@ -42,7 +42,7 @@ The IETE Student Chapter at KJSIT is a platform for innovators, developers, and 
 
 #### Non-Technical Events
 - IPL Auction  
-- FIFA & F1 (PS5)  
+- F1 (PS5)  
 - Alice in Borderland  
 - Social Buzz  
 
@@ -52,7 +52,7 @@ The IETE Student Chapter at KJSIT is a platform for innovators, developers, and 
 
 | Event Name           | Venue   |
 |---------------------|--------|
-| FIFA                | 402    |
+| F1 (PS5)                | 402    |
 | IPL Auction         | Audi   |
 | Campus Fwed         | Audi   |
 | Tech CTF            | 703    |

@@ -26,7 +26,7 @@ function RotatingTag() {
 }
 
 const STATS = [
-    { value: '8+', label: 'Events' },
+    { value: '9+', label: 'Events' },
     { value: '300+', label: 'Participants' },
     { value: '3', label: 'Days' },
     { value: '₹50K+', label: 'Prizes' },

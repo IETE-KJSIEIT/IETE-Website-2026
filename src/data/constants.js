@@ -2,64 +2,71 @@
 export const EVENTS = {
     'tech-escape-room': {
         title: 'Tech Escape Room',
-        logo: '/logos/iete-logo.webp',
+        logo: '/logos/tech_escape.png',
         type: 'tech',
-        description: 'Solve technical puzzles and crack codes to escape the room. Team size: 3 members. Entry: ₹100.',
+        description: 'Teams must solve a series of coding, logic, and tech-based puzzles within a time limit to unlock stages and finally "escape" the room. Team size: 3 members. Entry: ₹100.',
         registerUrl: '#',
     },
     'debug-dash': {
         title: 'Debug Dash',
-        logo: '/logos/iete-logo.webp',
+        logo: '/logos/debug_dash.png',
         type: 'tech',
-        description: 'Find and fix bugs in messy codebases as fast as possible! Entry: ₹30 per person.',
+        description: 'A high-intensity competition that challenges you to identify, analyze, and fix errors in pre-written code snippets under strict time constraints. Focus is on logical clarity and attention to detail — not writing from scratch. Entry: ₹30 per person.',
         registerUrl: '#',
     },
     'pixel-perfect': {
         title: 'Pixel Perfect',
-        logo: '/logos/iete-logo.webp',
+        logo: '/logos/pixel_perfect.png',
         type: 'tech',
-        description: 'Match the target design using HTML/CSS perfectly within the time limit. Entry: ₹30 per person.',
+        description: 'A visual coding showdown where code meets art. Participants are shown a specific geometric shape or pattern (the "Target") and must recreate it using only HTML and CSS within a strict time limit. No images, no SVGs — just pure code and styling. Entry: ₹30 per person.',
         registerUrl: '#',
     },
     'tech-ctf': {
         title: 'Tech CTF',
-        logo: '/logos/iete-logo.webp',
+        logo: '/logos/tech_ctf.png',
         type: 'tech',
-        description: 'Cybersecurity challenge! Find vulnerabilities and capture the flags. Entry: ₹50 per person.',
+        description: 'A hands-on cybersecurity contest where participants solve real-world security challenges in a fun and competitive environment. With cybersecurity as one of the fastest-growing career domains, get ready to capture the flags! Entry: ₹50 per person.',
         registerUrl: '#',
+    },
+    'upcoming-event': {
+        title: 'Circuit Sprint',
+        logo: '/logos/circuit_sprint.png',
+        type: 'tech',
+        description: 'A fast-paced tech showdown! Crack the quiz, grab your Arduino or Raspberry Pi, and race against time to solve a real-world problem through hardware implementation. Speed meets innovation here.',
+        registerUrl: 'https://forms.gle/e3hNaNyxtajZ4Wod9',
     },
     'ipl-auction': {
         title: 'IPL Auction',
-        logo: '/logos/iete-logo.webp',
+        logo: '/logos/auction.png',
         type: 'nontech',
-        description: 'Step into the shoes of a franchise owner! Strategize and bid to assemble your dream team in this thrilling cricket auction simulation. Team size: 4 members. Entry: ₹200.',
+        description: 'Build your dream cricket team with a fixed budget and smart bidding strategies. Analyze players, plan tactics, and outbid competitors to create the ultimate winning squad. Team size: 4 members. Entry: ₹200.',
         registerUrl: 'https://forms.gle/QgfYXgzEkVjNoU3L9',
     },
-    'fifa': {
-        title: 'FIFA',
-        logo: '/logos/iete-logo.webp',
+    'F1': {
+        title: 'F1',
+        logo: '/logos/f1.png',
         type: 'nontech',
-        description: 'Players battle head-to-head in FIFA, showcasing reflexes, tactics, and focus. Entry: ₹50 per person.',
+        description: 'Buckle up and dominate the virtual tracks! This PS5 showdown is all about speed, strategy, and skill as you battle it out in F1 — the ultimate test of reflexes and racing prowess. Outmaneuver, outsmart, and outdrive your rivals in thrilling head-to-head battles. Entry: ₹50 per person.',
         registerUrl: '#',
     },
     'campus-fued': {
         title: 'Campus Fued',
-        logo: '/logos/iete-logo.webp',
+        logo: '/logos/campus_feud.png',
         type: 'nontech',
-        description: 'Compete in a classic game show format tailored to our college life. Team size: 2 members. Entry: ₹100.',
+        description: 'A fun, survey-based team game where you guess the most popular campus answers. Test your wit, teamwork, and presence of mind to score big! Team size: 2 members. Entry: ₹100.',
         registerUrl: '#',
     },
     'startup-saga': {
         title: 'Startup Saga',
-        logo: '/logos/iete-logo.webp',
+        logo: '/logos/startup_saga.png',
         type: 'nontech',
-        description: 'Present your best business ideas and see if you have what it takes to be the next unicorn. Entry: ₹50 per person.',
+        description: 'All about ideas, creativity, and quick thinking. No technical skills needed! This event gives you a real-world startup experience in a fun and interactive way. Entry: ₹50 per person.',
         registerUrl: '#',
     },
 };
 
-export const TECH_EVENTS = ['tech-escape-room', 'debug-dash', 'pixel-perfect', 'tech-ctf'];
-export const NONTECH_EVENTS = ['ipl-auction', 'fifa', 'campus-fued', 'startup-saga'];
+export const TECH_EVENTS = ['tech-escape-room', 'debug-dash', 'pixel-perfect', 'tech-ctf', 'upcoming-event'];
+export const NONTECH_EVENTS = ['ipl-auction', 'F1', 'campus-fued', 'startup-saga'];
 
 // Current Sponsors data
 export const CURRENT_SPONSORS = {
@@ -109,4 +116,4 @@ export const PAST_SPONSORS = {
 };
 
 // Countdown target date — April 1 2026
-export const EVENT_DATE = new Date('2026-04-01T00:00:00');
+export const EVENT_DATE = new Date('2026-04-06T00:00:00');

@@ -131,8 +131,8 @@ const TEAM_DATA = {
         banner: 'ORGANIZING',
         photo: '/team/domains/org.webp',
         heads: [
-            { role: 'OL', title: 'Organizing Lead', name: 'Rishabh Shaw', email: 'rishabh.shaw@somaiya.edu', photo: '/team/domains/rishabh.webp' },
-            { role: 'EM', title: 'Event Manager', name: 'Aditi Hasurkar', email: 'aditi.hasurkar@somaiya.edu', photo: '/team/domains/aditi.webp' },
+            { role: 'OL', title: 'Organizing Lead', name: 'Rishabh Shaw', email: 'rishabh.shaw@somaiya.edu', photo: '/team/domains/rishabh.png' },
+            { role: 'EM', title: 'Event Manager', name: 'Aditi Hasurkar', email: 'aditi.hasurkar@somaiya.edu', photo: '/team/domains/aditi.png' },
         ],
     },
 };
@@ -196,7 +196,7 @@ export default function AboutIETE() {
                                         </div>
                                     ))}
                                 </div>
-                                <a href="#join" className={styles.joinBtn}>
+                                <a href="https://chat.whatsapp.com/Cj979S3ysl37ztWxxSw9mj" className={styles.joinBtn}>
                                     JOIN OUR FAMILY <span className={styles.arrow}>→</span>
                                 </a>
                             </div>
@@ -286,7 +286,7 @@ export default function AboutIETE() {
 
                 {/* ── Viewport 3: Teams Explorer ── */}
                 <div ref={teamsRef} className={`${styles.viewportSection} ${styles.teamsViewport}`}>
-                    
+
                     {/* ── Guiding Pillars (Mentors) ── */}
                     <div className={`${styles.mentorsContainer} ${teamsInView ? styles.mentorsVisible : ''}`}>
                         <div className={styles.mentorsHeader}>

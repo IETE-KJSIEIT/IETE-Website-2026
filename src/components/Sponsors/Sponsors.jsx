@@ -58,50 +58,10 @@ export default function Sponsors() {
                 <h2 ref={titleRef} className="section-title glow-purple reveal">SPONSORS</h2>
                 <p className="section-subtitle">Proudly supported by industry leaders driving innovation forward.</p>
 
-                {/* --- CURRENT SPONSORS --- */}
+                {/* --- CURRENT SPONSORS (Showing Past Sponsors Data) --- */}
                 <div className={`${styles.mainWrapper} ${styles.currentTheme}`}>
                     <div className={styles.headerBox}>
-                        <h3 className={styles.headerText}>Current Sponsors</h3>
-                    </div>
-
-                    <div className={styles.currentGrid}>
-                        {/* Major Sponsor - Left tall box */}
-                        <div className={`${styles.tierBox} ${styles.majorTier}`}>
-                            <h4 className={styles.tierLabel}>Major Sponsors</h4>
-                            <div className={styles.staticListLarge}>
-                                {CURRENT_SPONSORS.major.map((s) => (
-                                    <SponsorCard key={s.initials} {...s} size="large" />
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Tier 2 & Tier 3 - Right stacked boxes */}
-                        <div className={styles.rightCol}>
-                            <div className={`${styles.tierBox} ${styles.tier2}`}>
-                                <h4 className={styles.tierLabel}>Tier 2 Sponsors</h4>
-                                <div className={styles.staticList}>
-                                    {CURRENT_SPONSORS.tier2.map((s) => (
-                                        <SponsorCard key={s.initials} {...s} />
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div className={`${styles.tierBox} ${styles.tier3}`}>
-                                <h4 className={styles.tierLabel}>Tier 3 Sponsors</h4>
-                                <div className={styles.staticList}>
-                                    {CURRENT_SPONSORS.tier3.map((s) => (
-                                        <SponsorCard key={s.initials} {...s} />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* --- PAST SPONSORS --- */}
-                <div className={`${styles.mainWrapper} ${styles.pastWrapper} ${styles.pastTheme}`}>
-                    <div className={styles.headerBox}>
-                        <h3 className={styles.headerText}>Past Sponsors</h3>
+                        <h3 className={styles.headerText}>Our Sponsors</h3>
                     </div>
 
                     <div className={styles.pastStack}>
@@ -124,6 +84,35 @@ export default function Sponsors() {
                         </div>
                     </div>
                 </div>
+
+                {/* --- PAST SPONSORS --- */}
+                {/*
+                <div className={`${styles.mainWrapper} ${styles.pastWrapper} ${styles.pastTheme}`}>
+                    <div className={styles.headerBox}>
+                        <h3 className={styles.headerText}>Past Sponsors</h3>
+                    </div>
+
+                    <div className={styles.pastStack}>
+                        {/* S Tier *\/}
+                        <div className={styles.tierBox}>
+                            <h4 className={styles.tierLabel}>S Tier Sponsors</h4>
+                            <MarqueeRow sponsors={PAST_SPONSORS.sTier} />
+                        </div>
+
+                        {/* A Tier *\/}
+                        <div className={styles.tierBox}>
+                            <h4 className={styles.tierLabel}>A Tier Sponsors</h4>
+                            <MarqueeRow sponsors={PAST_SPONSORS.aTier} reverse={true} />
+                        </div>
+
+                        {/* B Tier *\/}
+                        <div className={styles.tierBox}>
+                            <h4 className={styles.tierLabel}>B Tier Sponsors</h4>
+                            <MarqueeRow sponsors={PAST_SPONSORS.bTier} />
+                        </div>
+                    </div>
+                </div>
+                */}
 
             </div>
         </section>
