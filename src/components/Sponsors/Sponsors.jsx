@@ -1,5 +1,5 @@
 import { useScrollReveal } from '../../hooks/useScrollReveal';
-import { CURRENT_SPONSORS, PAST_SPONSORS } from '../../data/constants';
+import { PAST_SPONSORS } from '../../data/constants';
 import styles from './Sponsors.module.css';
 
 /**

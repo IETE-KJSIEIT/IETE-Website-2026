@@ -68,22 +68,7 @@ export const EVENTS = {
 export const TECH_EVENTS = ['tech-escape-room', 'debug-dash', 'pixel-perfect', 'tech-ctf', 'upcoming-event'];
 export const NONTECH_EVENTS = ['ipl-auction', 'F1', 'campus-fued', 'startup-saga'];
 
-// Current Sponsors data
-export const CURRENT_SPONSORS = {
-    major: [
-        { initials: 'RB', name: 'RedBull', type: 'BEVERAGE PARTNER', gradient: 'linear-gradient(135deg,#e8174a,#ff6b9d)', logo: '/sponsors/RedBull - Beverage Partner.webp', websiteUrl: '#' },
-        { initials: 'AI', name: 'Apsara', type: 'ICE CREAM PARTNER', gradient: 'linear-gradient(135deg,#f59e0b,#fbbf24)', logo: '/sponsors/Apsara Ice Creams - Ice Cream Partner.webp', websiteUrl: '#' },
-    ],
-    tier2: [
-        { initials: 'LL', name: 'Love & Latte', type: 'CAFÉ PARTNER', gradient: 'linear-gradient(135deg,#10b981,#34d399)', logo: '/sponsors/Love & Latte - Cafe Partner.webp', websiteUrl: '#' },
-        { initials: 'BL', name: 'Bloovish', type: 'BEAUTY PARTNER', gradient: 'linear-gradient(135deg,#8b5cf6,#a78bfa)', logo: '/sponsors/Bloovish - Beauty Partner.webp', websiteUrl: '#' },
-        { initials: 'SM', name: 'Smaaash', type: 'ENTERTAINMENT', gradient: 'linear-gradient(135deg,#06b6d4,#22d3ee)', logo: '/sponsors/Smaaash - Entertainment Partner.webp', websiteUrl: '#' },
-    ],
-    tier3: [
-        { initials: 'NE', name: 'No Escape', type: 'ENTERTAINMENT', gradient: 'linear-gradient(135deg,#ef4444,#f87171)', logo: '/sponsors/No Escape - Entertainment Partner.webp', websiteUrl: '#' },
-        { initials: 'RR', name: 'Rage Room', type: 'ENTERTAINMENT', gradient: 'linear-gradient(135deg,#f97316,#fb923c)', logo: '/sponsors/Rage Room - Entertainment Partner.webp', websiteUrl: '#' },
-    ]
-};
+
 
 // Past Sponsors data
 export const PAST_SPONSORS = {
