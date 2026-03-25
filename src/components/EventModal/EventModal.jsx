@@ -34,23 +34,29 @@ export default function EventModal({ event, isTech, onClose }) {
                     <div className={styles.hudTop}></div>
                     <div className={styles.hudBottom}></div>
 
-                    <button className={styles.close} onClick={handleClose} aria-label="Close">[X]</button>
-
-                    <div className={styles.headerLayout}>
-                        <div className={styles.iconBox}>
-                            <img src={event.logo} alt={event.title} className={styles.emoji} style={{ width: '80%', height: '80%', objectFit: 'contain' }} />
-                        </div>
-                        <div className={styles.titleBox}>
-                            <span className={styles.badge}>// {isTech ? 'TECH_OP' : 'NON_TECH_OP'}</span>
-                            <h3 className={styles.title}>{event.title}</h3>
-                        </div>
+                    {/* Sticky close bar — always visible at top */}
+                    <div className={styles.closeBar}>
+                        <button className={styles.close} onClick={handleClose} aria-label="Close">[X]</button>
                     </div>
 
-                    <p className={styles.desc}>{event.description}</p>
+                    {/* Scrollable content */}
+                    <div className={styles.scrollContent}>
+                        <div className={styles.headerLayout}>
+                            <div className={styles.iconBox}>
+                                <img src={event.logo} alt={event.title} className={styles.emoji} style={{ width: '80%', height: '80%', objectFit: 'contain' }} />
+                            </div>
+                            <div className={styles.titleBox}>
+                                <span className={styles.badge}>// {isTech ? 'TECH_OP' : 'NON_TECH_OP'}</span>
+                                <h3 className={styles.title}>{event.title}</h3>
+                            </div>
+                        </div>
 
-                    <a href={event.registerUrl} className={styles.registerBtn}>
-                        INITIATE_REGISTER
-                    </a>
+                        <p className={styles.desc}>{event.description}</p>
+
+                        <a href={event.registerUrl} className={styles.registerBtn}>
+                            INITIATE_REGISTER
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

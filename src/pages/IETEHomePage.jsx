@@ -10,10 +10,15 @@ import styles from './IETEHomePage.module.css';
 let initialLoadComplete = false;
 
 export default function IETEHomePage() {
-    const [loaded, setLoaded] = useState(initialLoadComplete);
+    // sessionStorage persists across client-side nav but clears on new tab / hard refresh
+    const [loaded, setLoaded] = useState(() => {
+        if (initialLoadComplete) return true;
+        return sessionStorage.getItem('oscillation_loaded') === 'true';
+    });
     
     const handleDone = useCallback(() => {
         initialLoadComplete = true;
+        sessionStorage.setItem('oscillation_loaded', 'true');
         setLoaded(true);
     }, []);
 

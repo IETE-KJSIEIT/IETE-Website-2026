@@ -6,10 +6,11 @@
     -webkit-backdrop-filter: blur(8px);
     z-index: 2000;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     animation: fadeIn 0.3s ease-out both;
     padding: 1rem;
+    overflow-y: auto;
 }
 
 .overlayClosing {
@@ -41,8 +42,12 @@
     position: relative;
     max-width: 500px;
     width: 100%;
+    /* Limit to viewport height so modal never exceeds screen */
+    max-height: calc(100dvh - 2rem);
     animation: openHud 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
     filter: drop-shadow(0 0 20px rgba(0, 200, 255, 0.2));
+    /* Push down from top on small screens */
+    margin: auto;
 }
 
 .themeNonTech.boxWrapper {
@@ -97,10 +102,12 @@
             calc(100% - 20px) 100%,
             0 100%,
             0 20px);
-    padding: 2.5rem 2rem 2rem;
     position: relative;
     display: flex;
     flex-direction: column;
+    /* Fill boxWrapper height so overflow works */
+    max-height: calc(100dvh - 2rem);
+    overflow: hidden;
 }
 
 /* Animated scanner line over the content */
@@ -158,14 +165,48 @@
     box-shadow: 0 0 10px var(--secondary);
 }
 
+/* Sticky close bar — always pinned at the top of the modal box */
+.closeBar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.75rem 1.25rem 0.25rem;
+    background: rgba(5, 8, 15, 0.98);
+    z-index: 20;
+    flex-shrink: 0;
+}
+
+/* Scrollable content area below the close bar */
+.scrollContent {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.5rem 2rem 2rem;
+    flex: 1;
+    /* Custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 200, 255, 0.3) transparent;
+}
+
+.scrollContent::-webkit-scrollbar {
+    width: 4px;
+}
+
+.scrollContent::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollContent::-webkit-scrollbar-thumb {
+    background: rgba(0, 200, 255, 0.3);
+    border-radius: 2px;
+}
+
 /* Close Button */
 .close {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
     background: transparent;
     border: none;
     color: var(--text-muted);
+
     font-size: 1.2rem;
     cursor: pointer;
     z-index: 20;
