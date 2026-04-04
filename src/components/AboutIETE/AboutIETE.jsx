@@ -48,14 +48,22 @@ const TEAM_DATA = {
         accent: '#00c8ff',
         banner: 'CORE',
         members: [
-            { role: 'Cp', title: 'Chairperson', name: 'Meera Malekar', photo: '/team/core/cp.webp', linkedin: 'https://www.linkedin.com/in/meera-malekar-a1b1323b6/', email: 'meera.malekar@somaiya.edu' },
-            { role: 'VCp', title: 'Vice Chairperson', name: 'Meeti Shah', photo: '/team/core/vcp.webp', linkedin: 'https://www.linkedin.com/in/meeti-shah27', email: 'meeti.cs@somaiya.edu' },
-            { role: 'CEo', title: 'Chief Executive Officer', name: 'Nilambika Dudhani ', photo: '/team/core/ceo.webp', linkedin: 'https://www.linkedin.com/in/nilambika-dudhani-13b73b345/', email: ' nilambika.d@somaiya.edu' },
-            { role: 'CTO', title: 'Chief Technical Officer', name: 'Sujal Chalke', photo: '/team/core/cto.webp', linkedin: 'https://www.linkedin.com/in/cluelesssujal/', email: 'sujal.chalke@somaiya.edu' },
-            { role: 'CMO', title: 'Chief Marketing Officer', name: 'Krish Chambaria', photo: '/team/core/cmo.webp', linkedin: 'https://www.linkedin.com/in/krish-chambaria-271b92315/', email: 'krish.chambaria@somaiya.edu' },
-            { role: 'PRO', title: 'Public Relations Officer', name: 'Darsh Kothari', photo: '/team/core/pro.webp', linkedin: ' https://www.linkedin.com/in/darsh-kothari-70919a264', email: 'darsh.kothari@somaiya.edu' },
-            { role: 'DMM', title: 'Digital Media Manager', name: 'Arnav Deshpande', photo: '/team/core/dmm.webp', linkedin: 'https://www.linkedin.com/in/arnav-deshpande-4988023b8/', email: 'arnav.deshpande@somaiya.edu' },
-            { role: 'Trs', title: 'Treasurer', name: 'Neel Shah', photo: '/team/core/tr.webp', linkedin: '', email: '' },
+            { role: 'Cp', title: 'Chairperson', name: 'Meera Malekar', photo: '/team/core/cp.webp', linkedin: 'https://www.linkedin.com/in/meera-malekar-a1b1323b6/', email: 'meera.malekar@somaiya.edu',
+                bio: 'Leads the IETE KJSIT student chapter with vision and purpose, steering the committee towards impactful technical initiatives and fostering a culture of innovation.' },
+            { role: 'VCp', title: 'Vice Chairperson', name: 'Meeti Shah', photo: '/team/core/vcp.webp', linkedin: 'https://www.linkedin.com/in/meeti-shah27', email: 'meeti.cs@somaiya.edu',
+                bio: 'Supports the Chairperson in strategic planning and committee operations, ensuring smooth coordination across all domains and keeping the team aligned.' },
+            { role: 'CEo', title: 'Chief Executive Officer', name: 'Nilambika Dudhani', photo: '/team/core/ceo.webp', linkedin: 'https://www.linkedin.com/in/nilambika-dudhani-13b73b345/', email: ' nilambika.d@somaiya.edu',
+                bio: 'Oversees the overall execution of IETE activities, bridging leadership decisions with on-ground operations to ensure every initiative is delivered with excellence.' },
+            { role: 'CTO', title: 'Chief Technical Officer', name: 'Sujal Chalke', photo: '/team/core/cto.webp', linkedin: 'https://www.linkedin.com/in/cluelesssujal/', email: 'sujal.chalke@somaiya.edu',
+                bio: 'Drives the technical direction of the chapter, spearheading workshops, hackathons, and dev initiatives that expand the coding culture among students.' },
+            { role: 'CMO', title: 'Chief Marketing Officer', name: 'Krish Chambaria', photo: '/team/core/cmo.webp', linkedin: 'https://www.linkedin.com/in/krish-chambaria-271b92315/', email: 'krish.chambaria@somaiya.edu',
+                bio: 'Leads brand strategy and marketing campaigns, amplifying IETE KJSIT\'s reach and visibility across campus, social media, and industry networks.' },
+            { role: 'PRO', title: 'Public Relations Officer', name: 'Darsh Kothari', photo: '/team/core/pro.webp', linkedin: 'https://www.linkedin.com/in/darsh-kothari-70919a264', email: 'darsh.kothari@somaiya.edu',
+                bio: 'Manages external communications and builds relationships with sponsors, media partners, and industry professionals to strengthen the chapter\'s public presence.' },
+            { role: 'DMM', title: 'Digital Media Manager', name: 'Arnav Deshpande', photo: '/team/core/dmm.webp', linkedin: 'https://www.linkedin.com/in/arnav-deshpande-4988023b8/', email: 'arnav.deshpande@somaiya.edu',
+                bio: 'Curates and manages IETE\'s digital footprint — from social media content to event coverage — ensuring engaging and consistent online storytelling.' },
+            { role: 'Trs', title: 'Treasurer', name: 'Neel Shah', photo: '/team/core/tr.webp', linkedin: 'https://www.linkedin.com/in/neel-shah-729a99281/', email: 'shah.nk@somaiya.edu',
+                bio: 'Manages the financial health of the chapter, overseeing budgets, funds allocation, and expenditure tracking to keep every event running sustainably.' },
         ],
     },
     subcore: {
@@ -65,16 +73,24 @@ const TEAM_DATA = {
         accent: '#a855f7',
         banner: 'SUB-CORE',
         members: [
-            { role: 'WDL', title: 'Secretary', name: 'Himani Bamnikar', photo: '/team/subcore/sec.webp', linkedin: 'https://www.linkedin.com/in/himani-m-bamnikar/', email: 'himani.bamnikar@somaiya.com' },
-            { role: 'DSL', title: 'Joint Treasurer', name: 'Parth Shah', photo: '/team/subcore/jt-tr.webp', linkedin: 'https://www.linkedin.com/in/parth-shah-148b43368', email: 'parth13@somaiya.edu' },
-            { role: 'MKL', title: 'Marketing Admin', name: 'Mishti Shah', photo: '/team/subcore/ma.webp', linkedin: 'https://www.linkedin.com/in/mishti-shah-250811310', email: 'mishti.shah@somaiya.edu' },
-            { role: 'PRL', title: 'Joint Technical Officer', name: 'Shravani Dhuri', photo: '/team/subcore/jt-cto.webp', linkedin: 'https://www.linkedin.com/in/shravani-dhuri-986b6a317/', email: 'shravani.dhuri@somaiya.edu' },
-            { role: 'TECL', title: 'Technical Admin', name: 'Karan Mishra', photo: '/team/subcore/tech-admin.webp', linkedin: 'https://www.linkedin.com/in/karan-mishra-b2273b3a3/', email: 'karan.mishra@somaiya.edu' },
-            { role: 'CL', title: 'Joint Public Relations Officer', name: 'Savir Shrigadi', photo: '/team/subcore/cl.webp', linkedin: '', email: 'savir.s@somaiya.edu' },
-            { role: 'SML', title: 'Public Relations Admin', name: 'Zeal Dhami', photo: '/team/subcore/pr-admin.webp', linkedin: '', email: 'zeal.dhami@somaiya.edu' },
-            { role: 'EVL', title: 'Social Media Manager', name: 'Pratik Narvadkar', photo: '/team/subcore/smm.webp', linkedin: '', email: 'pratik.narvadkar@somaiya.edu' },
-            { role: 'ORL', title: 'Creative Admin', name: 'Eshant Palkar', photo: '/team/subcore/orl.webp', linkedin: '', email: 'eshant.p@somaiya.edu' },
-            { role: 'DOCL', title: 'Organising Admin', name: 'Bhavy Doshi', photo: '/team/subcore/org-head.webp', linkedin: 'https://www.linkedin.com/in/bhavy-doshi-735b20341/', email: 'bhavy.d@somaiya.edu' },
+            { role: 'WDL', title: 'Secretary', name: 'Himani Bamnikar', photo: '/team/subcore/sec.webp', linkedin: 'https://www.linkedin.com/in/himani-m-bamnikar/', email: 'himani.bamnikar@somaiya.com',
+                bio: 'Maintains the chapter\'s records, coordinates inter-team communication, and ensures all documentation and administrative tasks run like clockwork.' },
+            { role: 'DSL', title: 'Joint Treasurer', name: 'Parth Shah', photo: '/team/subcore/jt-tr.webp', linkedin: 'https://www.linkedin.com/in/parth-shah-148b43368', email: 'parth13@somaiya.edu',
+                bio: 'Assists in financial planning and fund management, tracking budgets across events and ensuring resources are optimally utilized.' },
+            { role: 'MKL', title: 'Marketing Admin', name: 'Mishti Shah', photo: '/team/subcore/ma.webp', linkedin: 'https://www.linkedin.com/in/mishti-shah-250811310', email: 'mishti.shah@somaiya.edu',
+                bio: 'Executes marketing strategies on the ground, coordinating outreach campaigns, promotional materials, and event publicity to maximize participation.' },
+            { role: 'PRL', title: 'Joint Technical Officer', name: 'Shravani Dhuri', photo: '/team/subcore/jt-cto.webp', linkedin: 'https://www.linkedin.com/in/shravani-dhuri-986b6a317/', email: 'shravani.dhuri@somaiya.edu',
+                bio: 'Collaborates with the CTO to plan and execute technical workshops, events, and member development initiatives across the academic year.' },
+            { role: 'TECL', title: 'Technical Admin', name: 'Karan Mishra', photo: '/team/subcore/tech-admin.webp', linkedin: 'https://www.linkedin.com/in/karan-mishra-b2273b3a3/', email: 'karan.mishra@somaiya.edu',
+                bio: 'Provides technical support for events and the committee\'s internal tools, managing logistics and backend requirements for a seamless execution.' },
+            { role: 'CL', title: 'Joint Public Relations Officer', name: 'Zeal Dhami', photo: '/team/subcore/pr-admin.webp', linkedin: '', email: 'zeal.dhami@somaiya.edu',
+                bio: 'Supports external outreach efforts and helps manage relationships with sponsors, media partners, and industry contacts alongside the PRO.' },
+            { role: 'EVL', title: 'Social Media Manager', name: 'Pratik Narvadkar', photo: '/team/subcore/smm.webp', linkedin: '', email: 'pratik.narvadkar@somaiya.edu',
+                bio: 'Drives the chapter\'s social media presence by crafting engaging content, managing posts, and growing the community across all digital platforms.' },
+            { role: 'ORL', title: 'Creative Admin', name: 'Eshant Palkar', photo: '/team/subcore/orl.webp', linkedin: '', email: 'eshant.p@somaiya.edu',
+                bio: 'Brings ideas to life through design and creativity, producing visual content, branding assets, and event collaterals that define the IETE aesthetic.' },
+            { role: 'DOCL', title: 'Organising Admin', name: 'Bhavy Doshi', photo: '/team/subcore/org-head.webp', linkedin: 'https://www.linkedin.com/in/bhavy-doshi-735b20341/', email: 'bhavy.d@somaiya.edu',
+                bio: 'Coordinates the end-to-end logistics of events — from venue setup to volunteer management — ensuring every event runs smoothly behind the scenes.' },
         ],
     },
 
@@ -521,8 +537,7 @@ export default function AboutIETE() {
                                 <div className={styles.popupDivider}
                                     style={{ background: `linear-gradient(to right, ${selectedMember.accent}, #8000ff)` }} />
                                 <p className={styles.popupBio}>
-                                    A key member of the IETE KJSIT committee, responsible for driving
-                                    innovation and excellence within the chapter.
+                                    {selectedMember.bio || 'A key member of the IETE KJSIT committee, responsible for driving innovation and excellence within the chapter.'}
                                 </p>
                                 <div className={styles.popupSocials}>
                                     <a

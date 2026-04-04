@@ -5,28 +5,28 @@ export const EVENTS = {
         logo: '/logos/tech_escape.png',
         type: 'tech',
         description: 'Teams must solve a series of coding, logic, and tech-based puzzles within a time limit to unlock stages and finally "escape" the room. Team size: 3 members. Entry: ₹100.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/ZUZwYczPybNwjLmo6',
     },
     'debug-dash': {
         title: 'Debug Dash',
         logo: '/logos/debug_dash.png',
         type: 'tech',
         description: 'A high-intensity competition that challenges you to identify, analyze, and fix errors in pre-written code snippets under strict time constraints. Focus is on logical clarity and attention to detail — not writing from scratch. Entry: ₹30 per person.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/dZ6pVZKCaYmgsbrf7',
     },
     'pixel-perfect': {
         title: 'Pixel Perfect',
         logo: '/logos/pixel_perfect.png',
         type: 'tech',
         description: 'A visual coding showdown where code meets art. Participants are shown a specific geometric shape or pattern (the "Target") and must recreate it using only HTML and CSS within a strict time limit. No images, no SVGs — just pure code and styling. Entry: ₹30 per person.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/4QjxkyVgUXsybeeLA',
     },
     'tech-ctf': {
         title: 'Tech CTF',
         logo: '/logos/tech_ctf.png',
         type: 'tech',
         description: 'A hands-on cybersecurity contest where participants solve real-world security challenges in a fun and competitive environment. With cybersecurity as one of the fastest-growing career domains, get ready to capture the flags! Entry: ₹50 per person.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/Q6yTr6N4eQGanSJB8',
     },
     'upcoming-event': {
         title: 'Circuit Sprint',
@@ -40,28 +40,28 @@ export const EVENTS = {
         logo: '/logos/auction.png',
         type: 'nontech',
         description: 'Build your dream cricket team with a fixed budget and smart bidding strategies. Analyze players, plan tactics, and outbid competitors to create the ultimate winning squad. Team size: 4 members. Entry: ₹200.',
-        registerUrl: 'https://forms.gle/QgfYXgzEkVjNoU3L9',
+        registerUrl: 'https://forms.gle/bvXa2WvvGFG8VD3N9',
     },
     'F1': {
         title: 'F1',
         logo: '/logos/f1.png',
         type: 'nontech',
         description: 'Buckle up and dominate the virtual tracks! This PS5 showdown is all about speed, strategy, and skill as you battle it out in F1 — the ultimate test of reflexes and racing prowess. Outmaneuver, outsmart, and outdrive your rivals in thrilling head-to-head battles. Entry: ₹50 per person.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/xLvgbgN5SYcWJV118',
     },
     'campus-fued': {
         title: 'Campus Fued',
         logo: '/logos/campus_feud.png',
         type: 'nontech',
         description: 'A fun, survey-based team game where you guess the most popular campus answers. Test your wit, teamwork, and presence of mind to score big! Team size: 2 members. Entry: ₹100.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/FFX6MLSiZDpKV8gC8',
     },
     'startup-saga': {
         title: 'Startup Saga',
         logo: '/logos/startup_saga.png',
         type: 'nontech',
         description: 'All about ideas, creativity, and quick thinking. No technical skills needed! This event gives you a real-world startup experience in a fun and interactive way. Entry: ₹50 per person.',
-        registerUrl: '#',
+        registerUrl: 'https://forms.gle/oMkMBBEDmd1LhyP17',
     },
 };
 
@@ -101,4 +101,4 @@ export const PAST_SPONSORS = {
 };
 
 // Countdown target date — April 1 2026
-export const EVENT_DATE = new Date('2026-04-06T00:00:00');
+export const EVENT_DATE = new Date('2026-04-07T00:00:00');

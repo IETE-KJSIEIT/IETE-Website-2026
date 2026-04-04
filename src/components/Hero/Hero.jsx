@@ -75,7 +75,7 @@ export default function Hero() {
                         <div className={styles.ring2} />
                         <div className={styles.orbCore}>
                             <span className={styles.orbYear}>2026</span>
-                            <span className={styles.orbSub}>APR 01</span>
+                            <span className={styles.orbSub}>APR 07</span>
                             <span className={styles.orbKjsit}>KJSIT</span>
                         </div>
                     </div>
